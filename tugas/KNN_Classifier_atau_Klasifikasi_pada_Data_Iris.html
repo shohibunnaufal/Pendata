@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UTS PENDATA_Naive Bayes Klasifikasi &#8212; My sample book</title>
+    <title>KNN Classifier atau Klasifikasi pada Data Iris &#8212; My sample book</title>
   
   
   
@@ -60,11 +60,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas/21_013_UTS_Pendata_NaiveBayes';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas/KNN_Classifier_atau_Klasifikasi_pada_Data_Iris';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Pohon Keputusan pada Data Iris" href="PohonKeputusan_Data_Iris.html" />
-    <link rel="prev" title="UTS PENDATA_KNN Classifier atau Klasifikasi" href="21_013_UTS_Pendata_KNN_Klasifikasi.html" />
+    <link rel="next" title="UTS PENDATA_KNN Classifier atau Klasifikasi" href="21_013_UTS_Pendata_KNN_Klasifikasi.html" />
+    <link rel="prev" title="Menghitung Jarak" href="count_jarak.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,9 +157,9 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="count_jarak.html">Menghitung Jarak</a></li>
-<li class="toctree-l1"><a class="reference internal" href="KNN_Classifier_atau_Klasifikasi_pada_Data_Iris.html">KNN Classifier atau Klasifikasi pada Data Iris</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">KNN Classifier atau Klasifikasi pada Data Iris</a></li>
 <li class="toctree-l1"><a class="reference internal" href="21_013_UTS_Pendata_KNN_Klasifikasi.html">UTS PENDATA_KNN Classifier atau Klasifikasi</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">UTS PENDATA_Naive Bayes Klasifikasi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_013_UTS_Pendata_NaiveBayes.html">UTS PENDATA_Naive Bayes Klasifikasi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PohonKeputusan_Data_Iris.html">Pohon Keputusan pada Data Iris</a></li>
 </ul>
 
@@ -232,7 +232,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas/21_013_UTS_Pendata_NaiveBayes.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas/KNN_Classifier_atau_Klasifikasi_pada_Data_Iris.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -262,7 +262,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/tugas/21_013_UTS_Pendata_NaiveBayes.ipynb" target="_blank"
+      <li><a href="../_sources/tugas/KNN_Classifier_atau_Klasifikasi_pada_Data_Iris.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -344,7 +344,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>UTS PENDATA_Naive Bayes Klasifikasi</h1>
+    <h1>KNN Classifier atau Klasifikasi pada Data Iris</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -366,35 +366,31 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="uts-pendata-naive-bayes-klasifikasi">
-<h1>UTS PENDATA_Naive Bayes Klasifikasi<a class="headerlink" href="#uts-pendata-naive-bayes-klasifikasi" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="knn-classifier-atau-klasifikasi-pada-data-iris">
+<h1>KNN Classifier atau Klasifikasi pada Data Iris<a class="headerlink" href="#knn-classifier-atau-klasifikasi-pada-data-iris" title="Permalink to this heading">#</a></h1>
 <p><strong>Nama  : Shohibun Naufal</strong></p>
 <p><strong>NIM   : 210411100013</strong></p>
 <p><strong>Kelas : Penambangan Data-C</strong></p>
-<p>Naive Bayes adalah sebuah algoritma pembelajaran mesin yang umum digunakan untuk klasifikasi dan analisis teks. Algoritma ini didasarkan pada teorema Bayes, yang menyatakan bahwa probabilitas suatu kejadian terjadi dapat dihitung berdasarkan probabilitas terkait dengan kejadian tersebut.</p>
-<p>Dalam klasifikasi teks, Naive Bayes digunakan untuk menentukan probabilitas bahwa suatu dokumen termasuk ke dalam kategori tertentu (misalnya positif atau negatif) berdasarkan kemunculan kata-kata tertentu dalam dokumen tersebut. Algoritma ini dinamakan “naive” karena asumsi dasar yang digunakan adalah bahwa setiap fitur (kata) dalam dokumen adalah independen satu sama lainnya, meskipun kenyataannya beberapa kata mungkin saling terkait.</p>
+<p>KNN pada dasarnya adalah algoritma supervised machine learning yang digunakan untuk mencari pola dalam data guna membuat prediksi. Secara sederhana, algoritma ini mengidentifikasi titik data yang memiliki fitur yang mirip dengan titik data yang diberikan, dan memilih k jumlah titik data yang paling mirip. Proses ini melibatkan perhitungan metrik kemiripan yang membandingkan satu set fitur numerik tetap antara dua pengamatan. Hasilnya kemudian dapat digunakan untuk melakukan prediksi dengan mengambil rata-rata atau mean dari fitur-fitur pada titik data yang terpilih. Inilah inti dari algoritma KNN.</p>
 <ol class="arabic simple">
-<li><p>import library pandas, numpy, dan sklearn yang diperlukan</p></li>
+<li><p>Mengimport library yang diperlukan</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span> 
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>import data kita</p></li>
+<li><p>Import data yang digunakan</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://gist.githubusercontent.com/shohibunnaufal/e07ed74f62ff07d74ce539a602c7a352/raw/b7149502289a717a5bb346aacebfcd4845abbc39/heartdisease.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://gist.githubusercontent.com/shohibunnaufal/d3516ed009a4ab1dcc5c2fa2a378d02c/raw/2140f62dfd210658868e79e56a18c66a381520f2/IrisDataSet&#39;</span><span class="p">)</span>
 
 <span class="n">jumlah_baris</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">jumlah_baris</span><span class="p">)</span>
@@ -403,7 +399,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4bc2205d-a0cf-4f9f-bdbb-41111d3d5785">
+  <div id="df-dbebe37a-7cb4-4397-a315-1db751bc9f59">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -423,107 +419,53 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>age</th>
-      <th>sex</th>
-      <th>cp</th>
-      <th>trestbps</th>
-      <th>chol</th>
-      <th>fbs</th>
-      <th>restecg</th>
-      <th>thalach</th>
-      <th>exang</th>
-      <th>oldpeak</th>
-      <th>slope</th>
-      <th>ca</th>
-      <th>thal</th>
-      <th>target</th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>63</td>
-      <td>1</td>
-      <td>3</td>
-      <td>145</td>
-      <td>233</td>
-      <td>1</td>
-      <td>0</td>
-      <td>150</td>
-      <td>0</td>
-      <td>2.3</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
+      <td>NaN</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>37</td>
-      <td>1</td>
-      <td>2</td>
-      <td>130</td>
-      <td>250</td>
-      <td>0</td>
-      <td>1</td>
-      <td>187</td>
-      <td>0</td>
-      <td>3.5</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
-      <td>1</td>
+      <td>?</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>41</td>
-      <td>0</td>
-      <td>1</td>
-      <td>130</td>
-      <td>204</td>
-      <td>0</td>
-      <td>0</td>
-      <td>172</td>
-      <td>0</td>
-      <td>1.4</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2</td>
-      <td>1</td>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>56</td>
-      <td>1</td>
-      <td>1</td>
-      <td>120</td>
-      <td>236</td>
-      <td>0</td>
-      <td>1</td>
-      <td>178</td>
-      <td>0</td>
-      <td>0.8</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2</td>
-      <td>1</td>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>57</td>
-      <td>0</td>
-      <td>0</td>
-      <td>120</td>
-      <td>354</td>
-      <td>0</td>
-      <td>1</td>
-      <td>163</td>
-      <td>1</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2</td>
-      <td>1</td>
+      <td>5</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
     </tr>
     <tr>
       <th>...</th>
@@ -532,106 +474,52 @@ document.write(`
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th>298</th>
-      <td>57</td>
-      <td>0</td>
-      <td>0</td>
-      <td>140</td>
-      <td>241</td>
-      <td>0</td>
-      <td>1</td>
-      <td>123</td>
-      <td>1</td>
-      <td>0.2</td>
-      <td>1</td>
-      <td>0</td>
-      <td>3</td>
-      <td>0</td>
+      <th>145</th>
+      <td>6.7</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.3</td>
+      <td>virginica</td>
     </tr>
     <tr>
-      <th>299</th>
-      <td>45</td>
-      <td>1</td>
-      <td>3</td>
-      <td>110</td>
-      <td>264</td>
-      <td>0</td>
-      <td>1</td>
-      <td>132</td>
-      <td>0</td>
-      <td>1.2</td>
-      <td>1</td>
-      <td>0</td>
-      <td>3</td>
-      <td>0</td>
+      <th>146</th>
+      <td>6.3</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+      <td>virginica</td>
     </tr>
     <tr>
-      <th>300</th>
-      <td>68</td>
-      <td>1</td>
-      <td>0</td>
-      <td>144</td>
-      <td>193</td>
-      <td>1</td>
-      <td>1</td>
-      <td>141</td>
-      <td>0</td>
+      <th>147</th>
+      <td>6.5</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.0</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>6.2</td>
       <td>3.4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>0</td>
+      <td>5.4</td>
+      <td>2.3</td>
+      <td>virginica</td>
     </tr>
     <tr>
-      <th>301</th>
-      <td>57</td>
-      <td>1</td>
-      <td>0</td>
-      <td>130</td>
-      <td>131</td>
-      <td>0</td>
-      <td>1</td>
-      <td>115</td>
-      <td>1</td>
-      <td>1.2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>302</th>
-      <td>57</td>
-      <td>0</td>
-      <td>1</td>
-      <td>130</td>
-      <td>236</td>
-      <td>0</td>
-      <td>0</td>
-      <td>174</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>2</td>
-      <td>0</td>
+      <th>149</th>
+      <td>5.9</td>
+      <td>3.0</td>
+      <td>5.1</td>
+      <td>1.8</td>
+      <td>virginica</td>
     </tr>
   </tbody>
 </table>
-<p>303 rows × 14 columns</p>
+<p>150 rows × 5 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-4bc2205d-a0cf-4f9f-bdbb-41111d3d5785')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-dbebe37a-7cb4-4397-a315-1db751bc9f59')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -682,12 +570,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-4bc2205d-a0cf-4f9f-bdbb-41111d3d5785 button.colab-df-convert');
+          document.querySelector('#df-dbebe37a-7cb4-4397-a315-1db751bc9f59 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-4bc2205d-a0cf-4f9f-bdbb-41111d3d5785');
+          const element = document.querySelector('#df-dbebe37a-7cb4-4397-a315-1db751bc9f59');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -708,12 +596,9 @@ document.write(`
   </div>
   </div></div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>Menangani data hilang atau missing value</p></li>
+<ol class="arabic simple" start="3">
+<li><p>melakukan pengecekan nilai yang kosong/hilang pada data</p></li>
 </ol>
-<blockquote>
-<div><p>dibawah ini menghitung data kosong:</p>
-</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_copy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -722,28 +607,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age         0
-sex         0
-cp          0
-trestbps    0
-chol        0
-fbs         0
-restecg     0
-thalach     0
-exang       0
-oldpeak     0
-slope       0
-ca          0
-thal        0
-target      0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sepal_length    1
+sepal_width     0
+petal_length    0
+petal_width     0
+species         0
 dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
-<blockquote>
-<div><p>ganti nilai yang mengandung tanda tanya (?) menjadi nilai kosong,dan mengecek berapa nilai yang kosong</p>
-</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Mengganti nilai yang mengandung tanda tanya (?) menjadi nilai kosong</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_copy</span> <span class="o">=</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
@@ -751,6 +627,9 @@ dtype: int64
 </div>
 </div>
 </div>
+<ol class="arabic simple" start="5">
+<li><p>pengecekan nilai kosong/hilang kembali</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_copy</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -758,27 +637,18 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age         0
-sex         0
-cp          0
-trestbps    0
-chol        0
-fbs         0
-restecg     0
-thalach     0
-exang       0
-oldpeak     0
-slope       0
-ca          0
-thal        0
-target      0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sepal_length    2
+sepal_width     0
+petal_length    0
+petal_width     0
+species         0
 dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="5">
-<li><p>Cek type data dari setiap fitur</p></li>
+<ol class="arabic simple" start="6">
+<li><p>Setelah itu kita lihat type datanya, jika type datanya bukan numerik/float maka perlu diganti type datanya</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -788,46 +658,104 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 303 entries, 0 to 302
-Data columns (total 14 columns):
- #   Column    Non-Null Count  Dtype  
----  ------    --------------  -----  
- 0   age       303 non-null    int64  
- 1   sex       303 non-null    int64  
- 2   cp        303 non-null    int64  
- 3   trestbps  303 non-null    int64  
- 4   chol      303 non-null    int64  
- 5   fbs       303 non-null    int64  
- 6   restecg   303 non-null    int64  
- 7   thalach   303 non-null    int64  
- 8   exang     303 non-null    int64  
- 9   oldpeak   303 non-null    float64
- 10  slope     303 non-null    int64  
- 11  ca        303 non-null    int64  
- 12  thal      303 non-null    int64  
- 13  target    303 non-null    int64  
-dtypes: float64(1), int64(13)
-memory usage: 33.3 KB
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 5 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   sepal_length  148 non-null    object 
+ 1   sepal_width   150 non-null    float64
+ 2   petal_length  150 non-null    float64
+ 3   petal_width   150 non-null    float64
+ 4   species       150 non-null    object 
+dtypes: float64(3), object(2)
+memory usage: 6.0+ KB
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic simple" start="7">
-<li><p>Melakukan Normalisasi data mengubah setiap nilai ke dalam rentang 0 hingga 1,dengan metode min-max dan juga metode simple feature scalling(z-score) .namun untuk Kolom target(kolom species ) tak akan di normalisasi</p></li>
+<li><p>Mengubah semuanya tipe data pada fitur menjadi tipe data numerik/float</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_column</span> <span class="o">=</span> <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
-<span class="n">df_copy</span> <span class="o">=</span> <span class="n">df_copy</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="s1">&#39;cp&#39;</span><span class="p">,</span> <span class="s1">&#39;trestbps&#39;</span><span class="p">,</span> <span class="s1">&#39;chol&#39;</span><span class="p">,</span> <span class="s1">&#39;fbs&#39;</span><span class="p">,</span> <span class="s1">&#39;restecg&#39;</span><span class="p">,</span> <span class="s1">&#39;thalach&#39;</span><span class="p">,</span> <span class="s1">&#39;exang&#39;</span><span class="p">,</span> <span class="s1">&#39;oldpeak&#39;</span><span class="p">,</span> <span class="s1">&#39;slope&#39;</span><span class="p">,</span> <span class="s1">&#39;ca&#39;</span><span class="p">,</span> <span class="s1">&#39;thal&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">df_copy</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_copy</span> <span class="o">-</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="n">df_copy</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-<span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">target_column</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">df_copy</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">jumlah_baris</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mengubah fitur sepal_length menjadi tipe data float</span>
+<span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1"># mengubah fitur species menjadi tipe data int yang awalnya categorical</span>
+<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>pengecekan kembali tipe data pada semua fitur</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_copy</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 5 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   sepal_length  148 non-null    float64
+ 1   sepal_width   150 non-null    float64
+ 2   petal_length  150 non-null    float64
+ 3   petal_width   150 non-null    float64
+ 4   species       150 non-null    int64  
+dtypes: float64(4), int64(1)
+memory usage: 6.0 KB
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Mengisi nilai yang hilang/kosong. Disini kita menggunakan mean, mean tidak selalu menjadi nilai yang baik untuk mengisi nilai yang hilang. Kita juga bisa menggunakan rumus untuk mengisinya.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_copy</span> <span class="o">=</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df_copy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>mengecek apakah masih ada data yang kosong</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_copy</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sepal_length    0
+sepal_width     0
+petal_length    0
+petal_width     0
+species         0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="11">
+<li><p>menampilkan data yang terbaru</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_copy</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">jumlah_baris</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a414d39c-a2ac-45a4-a4ce-8cbfec45c972">
+  <div id="df-e5e37073-a907-4113-920d-25054fe23ae8">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -847,107 +775,53 @@ memory usage: 33.3 KB
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>age</th>
-      <th>sex</th>
-      <th>cp</th>
-      <th>trestbps</th>
-      <th>chol</th>
-      <th>fbs</th>
-      <th>restecg</th>
-      <th>thalach</th>
-      <th>exang</th>
-      <th>oldpeak</th>
-      <th>slope</th>
-      <th>ca</th>
-      <th>thal</th>
-      <th>target</th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.708333</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>0.481132</td>
-      <td>0.244292</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.603053</td>
-      <td>0.0</td>
-      <td>0.370968</td>
-      <td>0.0</td>
-      <td>0.00</td>
-      <td>0.333333</td>
-      <td>1</td>
+      <td>5.85473</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.166667</td>
-      <td>1.0</td>
-      <td>0.666667</td>
-      <td>0.339623</td>
-      <td>0.283105</td>
-      <td>0.0</td>
-      <td>0.5</td>
-      <td>0.885496</td>
-      <td>0.0</td>
-      <td>0.564516</td>
-      <td>0.0</td>
-      <td>0.00</td>
-      <td>0.666667</td>
-      <td>1</td>
+      <td>5.85473</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.250000</td>
-      <td>0.0</td>
-      <td>0.333333</td>
-      <td>0.339623</td>
-      <td>0.178082</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.770992</td>
-      <td>0.0</td>
-      <td>0.225806</td>
-      <td>1.0</td>
-      <td>0.00</td>
-      <td>0.666667</td>
-      <td>1</td>
+      <td>4.70000</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.562500</td>
-      <td>1.0</td>
-      <td>0.333333</td>
-      <td>0.245283</td>
-      <td>0.251142</td>
-      <td>0.0</td>
-      <td>0.5</td>
-      <td>0.816794</td>
-      <td>0.0</td>
-      <td>0.129032</td>
-      <td>1.0</td>
-      <td>0.00</td>
-      <td>0.666667</td>
-      <td>1</td>
+      <td>4.60000</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.583333</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.245283</td>
-      <td>0.520548</td>
-      <td>0.0</td>
-      <td>0.5</td>
-      <td>0.702290</td>
-      <td>1.0</td>
-      <td>0.096774</td>
-      <td>1.0</td>
-      <td>0.00</td>
-      <td>0.666667</td>
-      <td>1</td>
+      <td>5.00000</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -956,106 +830,52 @@ memory usage: 33.3 KB
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th>298</th>
-      <td>0.583333</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.433962</td>
-      <td>0.262557</td>
-      <td>0.0</td>
-      <td>0.5</td>
-      <td>0.396947</td>
-      <td>1.0</td>
-      <td>0.032258</td>
-      <td>0.5</td>
-      <td>0.00</td>
-      <td>1.000000</td>
-      <td>0</td>
+      <th>145</th>
+      <td>6.70000</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.3</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>299</th>
-      <td>0.333333</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>0.150943</td>
-      <td>0.315068</td>
-      <td>0.0</td>
-      <td>0.5</td>
-      <td>0.465649</td>
-      <td>0.0</td>
-      <td>0.193548</td>
-      <td>0.5</td>
-      <td>0.00</td>
-      <td>1.000000</td>
-      <td>0</td>
+      <th>146</th>
+      <td>6.30000</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>300</th>
-      <td>0.812500</td>
-      <td>1.0</td>
-      <td>0.000000</td>
-      <td>0.471698</td>
-      <td>0.152968</td>
-      <td>1.0</td>
-      <td>0.5</td>
-      <td>0.534351</td>
-      <td>0.0</td>
-      <td>0.548387</td>
-      <td>0.5</td>
-      <td>0.50</td>
-      <td>1.000000</td>
-      <td>0</td>
+      <th>147</th>
+      <td>6.50000</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.0</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>301</th>
-      <td>0.583333</td>
-      <td>1.0</td>
-      <td>0.000000</td>
-      <td>0.339623</td>
-      <td>0.011416</td>
-      <td>0.0</td>
-      <td>0.5</td>
-      <td>0.335878</td>
-      <td>1.0</td>
-      <td>0.193548</td>
-      <td>0.5</td>
-      <td>0.25</td>
-      <td>1.000000</td>
-      <td>0</td>
+      <th>148</th>
+      <td>6.20000</td>
+      <td>3.4</td>
+      <td>5.4</td>
+      <td>2.3</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>302</th>
-      <td>0.583333</td>
-      <td>0.0</td>
-      <td>0.333333</td>
-      <td>0.339623</td>
-      <td>0.251142</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.786260</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.5</td>
-      <td>0.25</td>
-      <td>0.666667</td>
-      <td>0</td>
+      <th>149</th>
+      <td>5.90000</td>
+      <td>3.0</td>
+      <td>5.1</td>
+      <td>1.8</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
-<p>303 rows × 14 columns</p>
+<p>150 rows × 5 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-a414d39c-a2ac-45a4-a4ce-8cbfec45c972')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-e5e37073-a907-4113-920d-25054fe23ae8')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -1106,12 +926,12 @@ memory usage: 33.3 KB
 
       <script>
         const buttonEl =
-          document.querySelector('#df-a414d39c-a2ac-45a4-a4ce-8cbfec45c972 button.colab-df-convert');
+          document.querySelector('#df-e5e37073-a907-4113-920d-25054fe23ae8 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-a414d39c-a2ac-45a4-a4ce-8cbfec45c972');
+          const element = document.querySelector('#df-e5e37073-a907-4113-920d-25054fe23ae8');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1132,56 +952,272 @@ memory usage: 33.3 KB
   </div>
   </div></div>
 </div>
-<ol class="arabic simple" start="8">
-<li><p>Pemotongan Data atau Data Slicing</p></li>
+<ol class="arabic simple" start="12">
+<li><p>Melakukan normalisasi data adalah proses mengubah setiap nilai dalam data ke dalam rentang antara 0 hingga 1. Salah satu metode normalisasi yang umum digunakan adalah metode min-max, yang menggunakan rumus: (x - min) / (max - min). Terdapat juga metode lain yang dapat digunakan, seperti metode simple feature scaling atau metode z-score. Namun, penting untuk diingat bahwa kolom target (dalam contoh tersebut, kolom species) tidak akan dinormalisasi.</p></li>
 </ol>
-<p>Untuk memisahkan data menjadi data training dan data test, kita dapat dengan mudah menggunakan metode train_test_split() dari sklearn.</p>
-<p>Setelah memanggil metode ini dengan argumen input berupa data fitur dan target, variabel features_train akan berisi data fitur untuk training, variabel features_test akan berisi data fitur untuk test, variabel target_train akan berisi target untuk training, dan variabel target_test akan berisi target untuk test.</p>
-<p>Dengan cara ini, kita dapat memisahkan dataset kita secara acak menjadi data training dan data test untuk melatih dan menguji model kita secara efektif.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">values</span><span class="p">[:,:</span><span class="mi">13</span><span class="p">]</span>  <span class="c1">#Variabel features diisi dengan nilai features dari dataset adult_df_rev dengan slicing [:,:13] artinya mengambil seluruh baris dan kolom 0 hingga kolom 3 (kolom ke-13 tidak diambil karena merupakan variabel target).</span>
-<span class="n">target</span> <span class="o">=</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span><span class="mi">13</span><span class="p">]</span>  <span class="c1">#Variabel target diisi dengan nilai target dari dataset adult_df_rev dengan slicing [:,13] artinya mengambil seluruh baris dan hanya kolom ke-13 (variabel target).</span>
-<span class="n">features_train</span><span class="p">,</span> <span class="n">features_test</span><span class="p">,</span> <span class="n">target_train</span><span class="p">,</span> <span class="n">target_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span><span class="n">target</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1">#Kemudian menggunakan fungsi train_test_split, dataset yang sudah dipisahkan dijadikan argumen, dengan tambahan argumen test_size = 0.33 yang berarti dataset akan dibagi menjadi 33% data uji dan 67% data latih, dan random_state = 10 sebagai seed untuk menghasilkan hasil yang sama setiap kali dijalankan.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">species_column</span> <span class="o">=</span> <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span>
+<span class="n">df_copy</span> <span class="o">=</span> <span class="n">df_copy</span><span class="p">[[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_copy</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_copy</span> <span class="o">-</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="n">df_copy</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">species_column</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_copy</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">jumlah_baris</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-48f88f6b-5c81-4306-83c7-1c168012367f">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.431869</td>
+      <td>0.625000</td>
+      <td>0.067797</td>
+      <td>0.041667</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.431869</td>
+      <td>0.416667</td>
+      <td>0.067797</td>
+      <td>0.041667</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.111111</td>
+      <td>0.500000</td>
+      <td>0.050847</td>
+      <td>0.041667</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.083333</td>
+      <td>0.458333</td>
+      <td>0.084746</td>
+      <td>0.041667</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.194444</td>
+      <td>0.666667</td>
+      <td>0.067797</td>
+      <td>0.041667</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>0.666667</td>
+      <td>0.416667</td>
+      <td>0.711864</td>
+      <td>0.916667</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>0.555556</td>
+      <td>0.208333</td>
+      <td>0.677966</td>
+      <td>0.750000</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>0.611111</td>
+      <td>0.416667</td>
+      <td>0.711864</td>
+      <td>0.791667</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>0.527778</td>
+      <td>0.583333</td>
+      <td>0.745763</td>
+      <td>0.916667</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>0.444444</td>
+      <td>0.416667</td>
+      <td>0.694915</td>
+      <td>0.708333</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 5 columns</p>
 </div>
-<ol class="arabic simple" start="9">
-<li><p>Implementasi Gaussian Naive Bayes</p></li>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-48f88f6b-5c81-4306-83c7-1c168012367f')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-48f88f6b-5c81-4306-83c7-1c168012367f button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-48f88f6b-5c81-4306-83c7-1c168012367f');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<ol class="arabic simple" start="13">
+<li><p>Setelah itu , menginisialisasi objek knn dari kelas KNeighborsRegressor yang merupakan algoritma K-Nearest Neighbors untuk melakukan regresi. Kemudian, kita melakukan randomisasi indeks dari dataset menggunakan np.random.permutation() dengan seed 1 untuk memastikan hasil yang konsisten.</p></li>
 </ol>
 <blockquote>
-<div><p>Setelah selesai preprocessing data. saatnya menerapkan algoritma pembelajaran mesin atau machine learning. Kita akan menggunakan modul GaussianNB sklearn:</p>
+<div><p>Selanjutnya, kita membagi dataset menjadi 75% data untuk training dan 25% untuk testing menggunakan variabel train_index. Data training disimpan di training_data, dan data testing disimpan di testing_data.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Setelah itu, kita melakukan training model menggunakan data training dengan memanggil method fit() pada objek knn dengan argumen input berupa fitur-fitur yang digunakan (dalam hal ini sepal_length, sepal_width, petal_length, dan petal_width) dan label yaitu species.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Kemudian, kita melakukan prediksi pada data testing dengan memanggil method predict() pada objek knn dengan argumen input berupa fitur-fitur dari data testing yang ingin diprediksi.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Setelah itu, kita menghitung akurasi model dengan mengukur berapa persen data testing yang berhasil diprediksi dengan (threshold default 0.5.).</p>
+</div></blockquote>
+<blockquote>
+<div><p>Terakhir, kita mencetak hasil akurasi model.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
-<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features_train</span><span class="p">,</span> <span class="n">target_train</span><span class="p">)</span>
-<span class="n">target_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ol class="arabic simple" start="12">
-<li><p>Akurasi model Gaussian Naive Bayes</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">target_test</span><span class="p">,</span> <span class="n">target_pred</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsRegressor</span><span class="p">()</span>
+
+<span class="c1"># before we split, make sure you randomize the dataset</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">index_shuffled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">df_copy</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">shuffled_car_data</span> <span class="o">=</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index_shuffled</span><span class="p">]</span>
+
+<span class="c1"># We will use 75% of the data for training and the remaining 25% for testing</span>
+<span class="n">train_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">shuffled_car_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">training_data</span> <span class="o">=</span> <span class="n">shuffled_car_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">train_index</span><span class="p">]</span>
+<span class="n">testing_data</span> <span class="o">=</span> <span class="n">shuffled_car_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">:]</span>
+
+<span class="c1"># fit the model with the training data</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_data</span><span class="p">[[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">]],</span> <span class="n">training_data</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">])</span>
+
+<span class="c1"># predict the species of the testing data</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">testing_data</span><span class="p">[[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">]])</span>
+
+<span class="c1"># calculate the accuracy of the model</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">prediction</span> <span class="o">-</span> <span class="n">testing_data</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mf">0.5</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi model KNN: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi model KNN: 79.00%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi model KNN: 92.11%
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="kesimpulan">
 <h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permalink to this heading">#</a></h2>
-<p>Berdasarkan nilai akurasi sebesar 79.00% yang diperoleh dari model yang telah dilatih, dapat dikatakan bahwa data kita sudah cukup bagus. Namun, untuk memastikan kinerja model Gaussian Naive Bayes yang telah terlatih, kita dapat membuat kumpulan data uji acak dan menguji model tersebut untuk melihat seberapa baik performanya. Dengan cara ini, kita dapat mengevaluasi apakah model yang telah terlatih pada data training dapat diterapkan pada data yang belum pernah dilihat sebelumnya dengan baik atau tidak.</p>
+<p>Berdasarkan hasil di atas, model KNN yang menggunakan beberapa fitur seperti ‘sepal_length’, ‘sepal_width’, ‘petal_length’, dan ‘petal_width’ pada dataset iris mencapai tingkat akurasi sebesar 92.11%. Hal ini menunjukkan bahwa model KNN mampu dengan baik dalam melakukan klasifikasi pada data iris menggunakan fitur-fitur tersebut, dan dapat memprediksi klasifikasi dengan tingkat keakuratan yang tinggi.</p>
 </div>
 </div>
 
@@ -1217,20 +1253,20 @@ memory usage: 33.3 KB
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="21_013_UTS_Pendata_KNN_Klasifikasi.html"
+       href="count_jarak.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">UTS PENDATA_KNN Classifier atau Klasifikasi</p>
+        <p class="prev-next-title">Menghitung Jarak</p>
       </div>
     </a>
     <a class="right-next"
-       href="PohonKeputusan_Data_Iris.html"
+       href="21_013_UTS_Pendata_KNN_Klasifikasi.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Pohon Keputusan pada Data Iris</p>
+        <p class="prev-next-title">UTS PENDATA_KNN Classifier atau Klasifikasi</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
