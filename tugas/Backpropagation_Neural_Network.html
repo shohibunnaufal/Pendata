@@ -361,11 +361,11 @@ document.write(`
 <p><strong>Nama  : Shohibun Naufal</strong></p>
 <p><strong>NIM   : 210411100013</strong></p>
 <p><strong>Kelas : Penambangan Data-C</strong></p>
-<p>Backpropagation Neural Network (jaringan saraf tiruan) pada dasarnya adalah algoritma machine learning yang digunakan untuk melatih model neural network dengan menggunakan data input-output yang telah diketahui. Algoritma backpropagation beroperasi dengan cara mengalirkan input melalui lapisan-lapisan neuron (neural network) untuk menghasilkan output, kemudian menghitung error atau kesalahan prediksi antara output yang dihasilkan oleh model dan output yang sebenarnya.</p>
-<p>Setelah itu, algoritma akan melakukan proses “backpropagation” atau mengalirkan kembali error tersebut dari output menuju lapisan input dengan tujuan memperbarui bobot (weight) dan bias pada setiap neuron yang ada di dalam model. Proses ini dilakukan dengan menggunakan metode gradient descent untuk menemukan nilai bobot dan bias yang optimal untuk meminimalkan error prediksi.</p>
-<p>Dengan mengulang proses ini secara iteratif pada setiap data input-output yang ada dalam dataset, model neural network akan terus memperbaiki performa prediksi hingga mencapai titik konvergensi atau nilai error yang optimal. Model yang telah dilatih dengan algoritma backpropagation ini dapat digunakan untuk melakukan prediksi pada data input yang belum pernah dilihat sebelumnya.</p>
+<p>Backpropagation Neural Network, atau jaringan saraf tiruan dengan algoritma backpropagation, merupakan sebuah metode machine learning yang digunakan untuk melatih model neural network menggunakan data input-output yang diketahui. Algoritma backpropagation bekerja dengan mengalirkan input melalui lapisan-lapisan neuron dalam neural network untuk menghasilkan output, kemudian menghitung selisih atau error antara output yang dihasilkan oleh model dan output yang sebenarnya.</p>
+<p>Selanjutnya, algoritma akan melakukan proses “backpropagation” atau mengalirkan kembali error tersebut dari output menuju lapisan input dengan tujuan memperbarui bobot (weight) dan bias pada setiap neuron di dalam model. Proses ini menggunakan metode gradient descent untuk mencari nilai bobot dan bias yang optimal guna meminimalkan error prediksi.</p>
+<p>Dengan mengulangi proses ini secara iteratif pada setiap data input-output dalam dataset, model neural network terus meningkatkan performa prediksi hingga mencapai konvergensi atau mencapai nilai error yang optimal. Setelah dilatih menggunakan algoritma backpropagation, model neural network dapat digunakan untuk melakukan prediksi pada data input yang belum pernah dilihat sebelumnya.</p>
 <ol class="arabic simple">
-<li><p>Mengimport library yang diperlukan</p></li>
+<li><p>Mengimport library yang akan digunakan</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -389,7 +389,7 @@ document.write(`
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>Import data kita</p></li>
+<li><p>Import data yang digunakan</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -402,7 +402,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c40d9831-5498-4b72-b15b-256bca58581b">
+  <div id="df-c20ceabf-c8c2-4bac-ad4c-ff77788c6ded">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -522,7 +522,7 @@ document.write(`
 </table>
 <p>150 rows × 5 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-c40d9831-5498-4b72-b15b-256bca58581b')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-c20ceabf-c8c2-4bac-ad4c-ff77788c6ded')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -573,12 +573,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-c40d9831-5498-4b72-b15b-256bca58581b button.colab-df-convert');
+          document.querySelector('#df-c20ceabf-c8c2-4bac-ad4c-ff77788c6ded button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-c40d9831-5498-4b72-b15b-256bca58581b');
+          const element = document.querySelector('#df-c20ceabf-c8c2-4bac-ad4c-ff77788c6ded');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -600,7 +600,7 @@ document.write(`
   </div></div>
 </div>
 <ol class="arabic simple" start="3">
-<li><p>Mengecek nilai yang hilang/kosong pada data</p></li>
+<li><p>pengecekan nilai yang hilang/kosong pada data</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -631,7 +631,7 @@ dtype: int64
 </div>
 </div>
 <ol class="arabic simple" start="5">
-<li><p>Mengecek lagi berapa nilai yang kosong pada data</p></li>
+<li><p>pengecekan nilai kosong pada data</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -813,10 +813,10 @@ weighted avg       1.00      1.00      1.00        30
 <li><p>Menampilkan kurva kerugian dari model yang dilatih.</p></li>
 </ol>
 <blockquote>
-<div><p>Plot ini menunjukkan bagaimana kerugian model berubah seiring dengan meningkatnya jumlah iterasi atau epoch pada pelatihan model.</p>
+<div><p>Grafik ini menggambarkan perubahan kerugian model seiring dengan peningkatan jumlah iterasi atau epoch selama pelatihan model.</p>
 </div></blockquote>
 <blockquote>
-<div><p>Kurva kerugian ini dapat memberikan informasi yang berguna tentang bagaimana model belajar selama pelatihan dan apakah model terlalu kompleks atau tidak cukup kompleks. Misalnya, jika kerugian terus menurun selama pelatihan, ini menunjukkan bahwa model belajar dengan baik dan dapat menyesuaikan diri dengan data pelatihan. Namun, jika kerugian tetap tinggi atau tidak menurun seiring waktu, ini mungkin menunjukkan bahwa model terlalu kompleks atau tidak cocok dengan data.</p>
+<div><p>Kurva kerugian ini memberikan informasi penting tentang bagaimana model belajar selama pelatihan dan apakah model terlalu kompleks atau tidak cukup kompleks. Jika kerugian terus menurun seiring dengan peningkatan iterasi, hal ini menunjukkan bahwa model sedang belajar dengan baik dan mampu menyesuaikan diri dengan data pelatihan. Namun, jika kerugian tetap tinggi atau tidak menunjukkan penurunan seiring waktu, kemungkinan model tersebut terlalu kompleks atau tidak cocok dengan data yang digunakan. Analisis kurva kerugian ini membantu untuk mengevaluasi performa dan kemampuan adaptasi model selama pelatihan.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -852,7 +852,7 @@ weighted avg       1.00      1.00      1.00        30
 </div>
 </div>
 <ol class="arabic simple" start="16">
-<li><p>Melakukan prediksi menggunakan model klasifikasi MLPClassifier pada data baru yang belum pernah dilihat sebelumnya.</p></li>
+<li><p>Memprediksi menggunakan model klasifikasi MLPClassifier pada data baru yang belum pernah dilihat sebelumnya.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
