@@ -1,0 +1,2167 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Akhir (Decision Tree, KNN, Naive Bayes, BNN) &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas/21-013_UAS_pendat';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Jaringan Saraf Tiruan (Backpropagation Neural Network)" href="Backpropagation_Neural_Network.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/profil.jpeg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/profil.jpeg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    PENAMBANGAN DATA
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="count_jarak.html">Menghitung Jarak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KNN_Classifier_atau_Klasifikasi_pada_Data_Iris.html">KNN Classifier atau Klasifikasi pada Data Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_013_UTS_Pendata_KNN_Klasifikasi.html">UTS PENDATA_KNN Classifier atau Klasifikasi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_013_UTS_Pendata_NaiveBayes.html">UTS PENDATA_Naive Bayes Klasifikasi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PohonKeputusan_Data_Iris.html">Pohon Keputusan pada Data Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Backpropagation_Neural_Network.html">Jaringan Saraf Tiruan (Backpropagation Neural Network)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas Akhir (Decision Tree, KNN, Naive Bayes, BNN)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas/21-013_UAS_pendat.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tugas/21-013_UAS_pendat.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tugas Akhir (Decision Tree, KNN, Naive Bayes, BNN)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">1. Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">2. KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">3. Naive Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backpropagation-neural-network">4. Backpropagation Neural Network</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="tugas-akhir-decision-tree-knn-naive-bayes-bnn">
+<h1>Tugas Akhir (Decision Tree, KNN, Naive Bayes, BNN)<a class="headerlink" href="#tugas-akhir-decision-tree-knn-naive-bayes-bnn" title="Permalink to this heading">#</a></h1>
+<p><strong>Nama  : Shohibun Naufal</strong></p>
+<p><strong>NIM   : 210411100013</strong></p>
+<p><strong>Kelas : Penambangan Data-C</strong></p>
+<p>Data set Red wine quality(data set kualitas anggur merah)
+adalah data set yang mengukur kualitas anggur merah berdasar kandungan zat nya.kolom kolomnya terdiri dari:</p>
+<ul class="simple">
+<li><p>fixed acidity: Mengacu pada kandungan asam tartarik yang tetap dalam anggur, diukur dalam gram per liter (g/L). Asam tartarik memberikan keasaman yang diperlukan untuk menyeimbangkan rasa anggur</p></li>
+<li><p>volatile acidity:Mengacu pada kandungan asam asetat dalam anggur, diukur dalam gram per liter (g/L). Konsentrasi asam asetat yang tinggi dapat memberikan rasa cuka atau asam yang tidak diinginkan pada anggur.</p></li>
+<li><p>Citric acid:Mengacu pada kandungan asam sitrat dalam anggur, diukur dalam gram per liter (g/L). Asam sitrat dapat memberikan rasa segar dan keasaman yang diinginkan pada anggur.</p></li>
+<li><p>residual sugar:Mengacu pada jumlah gula yang tertinggal setelah fermentasi selesai, diukur dalam gram per liter (g/L). Gula yang tertinggal dapat memberikan kelembutan atau keindahan pada anggur.</p></li>
+<li><p>chlorides:Mengacu pada kandungan garam dalam anggur, diukur dalam gram per liter (g/L). Konsentrasi garam yang tinggi dapat memberikan rasa yang terlalu asin pada anggur.</p></li>
+<li><p>free sulfur dioxide:Mengacu pada konsentrasi sulfur dioksida bebas dalam anggur, diukur dalam miligram per liter (mg/L). Sulfur dioksida adalah pengawet alami yang digunakan dalam anggur untuk mencegah pertumbuhan mikroba dan oksidasi.</p></li>
+<li><p>total sulfur dioxide:Mengacu pada total konsentrasi sulfur dioksida dalam anggur, termasuk bentuk bebas dan terikat, diukur dalam miligram per liter (mg/L).</p></li>
+<li><p>density:Mengacu pada kepadatan anggur, diukur dalam gram per centimeter kubik (g/cm3). Kepadatan dapat memberikan indikasi tentang kekentalan anggur.</p></li>
+<li><p>pH:Mengacu pada tingkat keasaman atau alkalinitas dalam anggur. Skala pH berkisar antara 0 hingga 14, dengan nilai 7 dianggap netral. Anggur biasanya memiliki pH antara 3 hingga 4.</p></li>
+<li><p>sulphates:Mengacu pada kandungan sulfat dalam anggur, diukur dalam gram per liter (g/L). Sulfat dapat memberikan kontribusi pada kestabilan dan perlindungan antioksidan dalam anggur.</p></li>
+<li><p>alcohol:Mengacu pada tingkat kandungan alkohol dalam anggur, diukur dalam persen volume. Kandungan alkohol mempengaruhi rasa, aroma, dan kehangatan anggur.</p></li>
+<li><p>quality:Mengacu pada penilaian kualitas anggur berdasarkan skala 0 hingga 10, di mana 0 merupakan kualitas terburuk dan 10 merupakan kualitas terbaik. Penilaian ini dapat bergantung pada sejumlah faktor dan subjektifitas penilai.</p></li>
+</ul>
+<p>Mengimport library yang diperlukan</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">gdown</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mengimport data kita</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/iamwilldev/Kumpulan-Dataset/master/winequality-red.csv&#39;</span><span class="p">)</span>
+
+<span class="n">jumlah_baris</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">jumlah_baris</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-9972c25a-a0ac-45d6-80e0-808e2e6c87ae">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fixed acidity</th>
+      <th>volatile acidity</th>
+      <th>citric acid</th>
+      <th>residual sugar</th>
+      <th>chlorides</th>
+      <th>free sulfur dioxide</th>
+      <th>total sulfur dioxide</th>
+      <th>density</th>
+      <th>pH</th>
+      <th>sulphates</th>
+      <th>alcohol</th>
+      <th>quality</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7.4</td>
+      <td>0.700</td>
+      <td>0.00</td>
+      <td>1.9</td>
+      <td>0.076</td>
+      <td>11.0</td>
+      <td>34.0</td>
+      <td>0.99780</td>
+      <td>3.51</td>
+      <td>0.56</td>
+      <td>9.4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>7.8</td>
+      <td>0.880</td>
+      <td>0.00</td>
+      <td>2.6</td>
+      <td>0.098</td>
+      <td>25.0</td>
+      <td>67.0</td>
+      <td>0.99680</td>
+      <td>3.20</td>
+      <td>0.68</td>
+      <td>9.8</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7.8</td>
+      <td>0.760</td>
+      <td>0.04</td>
+      <td>2.3</td>
+      <td>0.092</td>
+      <td>15.0</td>
+      <td>54.0</td>
+      <td>0.99700</td>
+      <td>3.26</td>
+      <td>0.65</td>
+      <td>9.8</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>11.2</td>
+      <td>0.280</td>
+      <td>0.56</td>
+      <td>1.9</td>
+      <td>0.075</td>
+      <td>17.0</td>
+      <td>60.0</td>
+      <td>0.99800</td>
+      <td>3.16</td>
+      <td>0.58</td>
+      <td>9.8</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7.4</td>
+      <td>0.700</td>
+      <td>0.00</td>
+      <td>1.9</td>
+      <td>0.076</td>
+      <td>11.0</td>
+      <td>34.0</td>
+      <td>0.99780</td>
+      <td>3.51</td>
+      <td>0.56</td>
+      <td>9.4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1594</th>
+      <td>6.2</td>
+      <td>0.600</td>
+      <td>0.08</td>
+      <td>2.0</td>
+      <td>0.090</td>
+      <td>32.0</td>
+      <td>44.0</td>
+      <td>0.99490</td>
+      <td>3.45</td>
+      <td>0.58</td>
+      <td>10.5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1595</th>
+      <td>5.9</td>
+      <td>0.550</td>
+      <td>0.10</td>
+      <td>2.2</td>
+      <td>0.062</td>
+      <td>39.0</td>
+      <td>51.0</td>
+      <td>0.99512</td>
+      <td>3.52</td>
+      <td>0.76</td>
+      <td>11.2</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1596</th>
+      <td>6.3</td>
+      <td>0.510</td>
+      <td>0.13</td>
+      <td>2.3</td>
+      <td>0.076</td>
+      <td>29.0</td>
+      <td>40.0</td>
+      <td>0.99574</td>
+      <td>3.42</td>
+      <td>0.75</td>
+      <td>11.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1597</th>
+      <td>5.9</td>
+      <td>0.645</td>
+      <td>0.12</td>
+      <td>2.0</td>
+      <td>0.075</td>
+      <td>32.0</td>
+      <td>44.0</td>
+      <td>0.99547</td>
+      <td>3.57</td>
+      <td>0.71</td>
+      <td>10.2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1598</th>
+      <td>6.0</td>
+      <td>0.310</td>
+      <td>0.47</td>
+      <td>3.6</td>
+      <td>0.067</td>
+      <td>18.0</td>
+      <td>42.0</td>
+      <td>0.99549</td>
+      <td>3.39</td>
+      <td>0.66</td>
+      <td>11.0</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+<p>1599 rows × 12 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-9972c25a-a0ac-45d6-80e0-808e2e6c87ae')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-9972c25a-a0ac-45d6-80e0-808e2e6c87ae button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-9972c25a-a0ac-45d6-80e0-808e2e6c87ae');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<p>Mengecek nilai yang hilang/kosong pada data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fixed acidity           0
+volatile acidity        0
+citric acid             0
+residual sugar          0
+chlorides               0
+free sulfur dioxide     0
+total sulfur dioxide    0
+density                 0
+pH                      0
+sulphates               0
+alcohol                 0
+quality                 0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mengganti nilai yang mengandung tanda tanya (?) menjadi nilai kosong</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mengecek lagi apakah ada nilai yang kosong pada data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fixed acidity           0
+volatile acidity        0
+citric acid             0
+residual sugar          0
+chlorides               0
+free sulfur dioxide     0
+total sulfur dioxide    0
+density                 0
+pH                      0
+sulphates               0
+alcohol                 0
+quality                 0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Setelah itu kita lihat type data pada fitur, jika type datanya bukan numerik maka perlu diubah type datanya</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1599 entries, 0 to 1598
+Data columns (total 12 columns):
+ #   Column                Non-Null Count  Dtype  
+---  ------                --------------  -----  
+ 0   fixed acidity         1599 non-null   float64
+ 1   volatile acidity      1599 non-null   float64
+ 2   citric acid           1599 non-null   float64
+ 3   residual sugar        1599 non-null   float64
+ 4   chlorides             1599 non-null   float64
+ 5   free sulfur dioxide   1599 non-null   float64
+ 6   total sulfur dioxide  1599 non-null   float64
+ 7   density               1599 non-null   float64
+ 8   pH                    1599 non-null   float64
+ 9   sulphates             1599 non-null   float64
+ 10  alcohol               1599 non-null   float64
+ 11  quality               1599 non-null   int64  
+dtypes: float64(11), int64(1)
+memory usage: 150.0 KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Menghitung jumlah target pada dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung jumlah target</span>
+<span class="n">jumlah_target</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;quality&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="c1"># Menampilkan hasil</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jumlah_target</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5    681
+6    638
+7    199
+4     53
+8     18
+3     10
+Name: quality, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Melakukan Normalisasi Data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy Data Frame</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Mengambil kolom-kolom yang diinginkan</span>
+<span class="n">selected_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fixed acidity&#39;</span><span class="p">,</span>	<span class="s1">&#39;volatile acidity&#39;</span><span class="p">,</span>	<span class="s1">&#39;citric acid&#39;</span><span class="p">,</span>	<span class="s1">&#39;residual sugar&#39;</span><span class="p">,</span>	<span class="s1">&#39;chlorides&#39;</span><span class="p">,</span> <span class="s1">&#39;free sulfur dioxide&#39;</span><span class="p">,</span><span class="s1">&#39;total sulfur dioxide&#39;</span><span class="p">,</span><span class="s1">&#39;density&#39;</span><span class="p">,</span><span class="s1">&#39;pH&#39;</span><span class="p">,</span><span class="s1">&#39;sulphates&#39;</span><span class="p">,</span><span class="s1">&#39;alcohol&#39;</span><span class="p">,</span><span class="s1">&#39;quality&#39;</span><span class="p">]</span>
+<span class="n">selected_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">selected_columns</span><span class="p">]</span>
+
+<span class="c1"># Kolom numerik</span>
+<span class="n">numeric_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fixed acidity&#39;</span><span class="p">,</span>	<span class="s1">&#39;volatile acidity&#39;</span><span class="p">,</span>	<span class="s1">&#39;citric acid&#39;</span><span class="p">,</span>	<span class="s1">&#39;residual sugar&#39;</span><span class="p">,</span>	<span class="s1">&#39;chlorides&#39;</span><span class="p">,</span> <span class="s1">&#39;free sulfur dioxide&#39;</span><span class="p">,</span><span class="s1">&#39;total sulfur dioxide&#39;</span><span class="p">,</span><span class="s1">&#39;density&#39;</span><span class="p">,</span><span class="s1">&#39;pH&#39;</span><span class="p">,</span><span class="s1">&#39;sulphates&#39;</span><span class="p">,</span><span class="s1">&#39;alcohol&#39;</span><span class="p">]</span>
+<span class="n">numeric_data</span> <span class="o">=</span> <span class="n">selected_data</span><span class="p">[</span><span class="n">numeric_columns</span><span class="p">]</span>
+
+<span class="c1"># Melakukan normalisasi Min-Max Scaling pada kolom numerik</span>
+<span class="n">minmax</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">normalized_numeric</span> <span class="o">=</span> <span class="n">minmax</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">numeric_data</span><span class="p">)</span>
+
+
+<span class="c1"># Menggabungkan kembali data yang telah dinormalisasi</span>
+<span class="n">normalized_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;fixed acidity&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="s1">&#39;volatile acidity&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="s1">&#39;citric acid&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span>
+        <span class="s1">&#39;residual sugar&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span>
+        <span class="s1">&#39;chlorides&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">4</span><span class="p">],</span>
+        <span class="s1">&#39;free sulfur dioxide&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">5</span><span class="p">],</span>
+        <span class="s1">&#39;total sulfur dioxide&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">6</span><span class="p">],</span>
+        <span class="s1">&#39;density&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">7</span><span class="p">],</span>
+        <span class="s1">&#39;ph&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">8</span><span class="p">],</span>
+        <span class="s1">&#39;sulphates&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">9</span><span class="p">],</span>
+        <span class="s1">&#39;alcohol&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">10</span><span class="p">],</span>
+        <span class="s1">&#39;quality&#39;</span><span class="p">:</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;quality&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">normalized_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">jumlah_baris</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-a968c9fc-46c5-4383-a45f-3464b8339a17">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fixed acidity</th>
+      <th>volatile acidity</th>
+      <th>citric acid</th>
+      <th>residual sugar</th>
+      <th>chlorides</th>
+      <th>free sulfur dioxide</th>
+      <th>total sulfur dioxide</th>
+      <th>density</th>
+      <th>ph</th>
+      <th>sulphates</th>
+      <th>alcohol</th>
+      <th>quality</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.247788</td>
+      <td>0.397260</td>
+      <td>0.00</td>
+      <td>0.068493</td>
+      <td>0.106845</td>
+      <td>0.140845</td>
+      <td>0.098940</td>
+      <td>0.567548</td>
+      <td>0.606299</td>
+      <td>0.137725</td>
+      <td>0.153846</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.283186</td>
+      <td>0.520548</td>
+      <td>0.00</td>
+      <td>0.116438</td>
+      <td>0.143573</td>
+      <td>0.338028</td>
+      <td>0.215548</td>
+      <td>0.494126</td>
+      <td>0.362205</td>
+      <td>0.209581</td>
+      <td>0.215385</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.283186</td>
+      <td>0.438356</td>
+      <td>0.04</td>
+      <td>0.095890</td>
+      <td>0.133556</td>
+      <td>0.197183</td>
+      <td>0.169611</td>
+      <td>0.508811</td>
+      <td>0.409449</td>
+      <td>0.191617</td>
+      <td>0.215385</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.584071</td>
+      <td>0.109589</td>
+      <td>0.56</td>
+      <td>0.068493</td>
+      <td>0.105175</td>
+      <td>0.225352</td>
+      <td>0.190813</td>
+      <td>0.582232</td>
+      <td>0.330709</td>
+      <td>0.149701</td>
+      <td>0.215385</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.247788</td>
+      <td>0.397260</td>
+      <td>0.00</td>
+      <td>0.068493</td>
+      <td>0.106845</td>
+      <td>0.140845</td>
+      <td>0.098940</td>
+      <td>0.567548</td>
+      <td>0.606299</td>
+      <td>0.137725</td>
+      <td>0.153846</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1594</th>
+      <td>0.141593</td>
+      <td>0.328767</td>
+      <td>0.08</td>
+      <td>0.075342</td>
+      <td>0.130217</td>
+      <td>0.436620</td>
+      <td>0.134276</td>
+      <td>0.354626</td>
+      <td>0.559055</td>
+      <td>0.149701</td>
+      <td>0.323077</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1595</th>
+      <td>0.115044</td>
+      <td>0.294521</td>
+      <td>0.10</td>
+      <td>0.089041</td>
+      <td>0.083472</td>
+      <td>0.535211</td>
+      <td>0.159011</td>
+      <td>0.370778</td>
+      <td>0.614173</td>
+      <td>0.257485</td>
+      <td>0.430769</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1596</th>
+      <td>0.150442</td>
+      <td>0.267123</td>
+      <td>0.13</td>
+      <td>0.095890</td>
+      <td>0.106845</td>
+      <td>0.394366</td>
+      <td>0.120141</td>
+      <td>0.416300</td>
+      <td>0.535433</td>
+      <td>0.251497</td>
+      <td>0.400000</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1597</th>
+      <td>0.115044</td>
+      <td>0.359589</td>
+      <td>0.12</td>
+      <td>0.075342</td>
+      <td>0.105175</td>
+      <td>0.436620</td>
+      <td>0.134276</td>
+      <td>0.396476</td>
+      <td>0.653543</td>
+      <td>0.227545</td>
+      <td>0.276923</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1598</th>
+      <td>0.123894</td>
+      <td>0.130137</td>
+      <td>0.47</td>
+      <td>0.184932</td>
+      <td>0.091820</td>
+      <td>0.239437</td>
+      <td>0.127208</td>
+      <td>0.397944</td>
+      <td>0.511811</td>
+      <td>0.197605</td>
+      <td>0.400000</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+<p>1599 rows × 12 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a968c9fc-46c5-4383-a45f-3464b8339a17')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-a968c9fc-46c5-4383-a45f-3464b8339a17 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-a968c9fc-46c5-4383-a45f-3464b8339a17');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<p>Menyimpan data normalisasi</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;minmax.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">minmax</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Membagi dataset menjadi data training dan data testing (0.8/0.2)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Memisahkan fitur dan target</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">normalized_data</span><span class="p">[[</span><span class="s1">&#39;fixed acidity&#39;</span><span class="p">,</span>	<span class="s1">&#39;volatile acidity&#39;</span><span class="p">,</span>	<span class="s1">&#39;citric acid&#39;</span><span class="p">,</span>	<span class="s1">&#39;residual sugar&#39;</span><span class="p">,</span>	<span class="s1">&#39;chlorides&#39;</span><span class="p">,</span> <span class="s1">&#39;free sulfur dioxide&#39;</span><span class="p">,</span><span class="s1">&#39;total sulfur dioxide&#39;</span><span class="p">,</span><span class="s1">&#39;density&#39;</span><span class="p">,</span><span class="s1">&#39;ph&#39;</span><span class="p">,</span><span class="s1">&#39;sulphates&#39;</span><span class="p">,</span><span class="s1">&#39;alcohol&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">normalized_data</span><span class="p">[</span><span class="s1">&#39;quality&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data into train and test data</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="decision-tree">
+<h2>1. Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this heading">#</a></h2>
+<p>Import library Decision Tree</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">graphviz</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Membuat model Decision Tree dengan metode impurity criterion Gini</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># membuat klasifikasi Decision Tree dengan kedalaman maksimum 3 dan kriteria pemisahan (splitting) Gini impurity.</span>
+<span class="n">clf_gini</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;gini&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># membuat model</span>
+<span class="n">clf_gini</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeClassifier(random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">DecisionTreeClassifier</label><div class="sk-toggleable__content"><pre>DecisionTreeClassifier(random_state=42)</pre></div></div></div></div></div></div></div>
+</div>
+<p>Membuat visualisasi decision tree</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># membuat figure dengan ukuran 12x8 inch (atau sekitar 30x20 cm).</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># membuat visualisasi decision tree</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">clf_gini</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.5636114016736402, 0.9722222222222222, &#39;x[10] &lt;= 0.327\ngini = 0.642\nsamples = 1279\nvalue = [9, 43, 551, 506, 157, 13]&#39;),
+ Text(0.36597803347280333, 0.9166666666666666, &#39;x[6] &lt;= 0.327\ngini = 0.541\nsamples = 786\nvalue = [6, 27, 465, 256, 30, 2]&#39;),
+ Text(0.22484309623430962, 0.8611111111111112, &#39;x[9] &lt;= 0.147\ngini = 0.568\nsamples = 689\nvalue = [6, 26, 375, 251, 29, 2]&#39;),
+ Text(0.07280334728033473, 0.8055555555555556, &#39;x[10] &lt;= 0.208\ngini = 0.496\nsamples = 263\nvalue = [4, 20, 176, 59, 4, 0]&#39;),
+ Text(0.03472803347280335, 0.75, &#39;x[8] &lt;= 0.63\ngini = 0.389\nsamples = 165\nvalue = [2, 11, 126, 25, 1, 0]&#39;),
+ Text(0.03138075313807531, 0.6944444444444444, &#39;x[10] &lt;= 0.104\ngini = 0.372\nsamples = 162\nvalue = [2, 11, 126, 22, 1, 0]&#39;),
+ Text(0.013389121338912133, 0.6388888888888888, &#39;x[3] &lt;= 0.079\ngini = 0.711\nsamples = 11\nvalue = [1, 3, 3, 4, 0, 0]&#39;),
+ Text(0.0066945606694560665, 0.5833333333333334, &#39;x[7] &lt;= 0.437\ngini = 0.48\nsamples = 5\nvalue = [0, 2, 3, 0, 0, 0]&#39;),
+ Text(0.0033472803347280333, 0.5277777777777778, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 2, 0, 0, 0, 0]&#39;),
+ Text(0.0100418410041841, 0.5277777777777778, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 3, 0, 0, 0]&#39;),
+ Text(0.0200836820083682, 0.5833333333333334, &#39;x[8] &lt;= 0.48\ngini = 0.5\nsamples = 6\nvalue = [1, 1, 0, 4, 0, 0]&#39;),
+ Text(0.016736401673640166, 0.5277777777777778, &#39;x[7] &lt;= 0.78\ngini = 0.32\nsamples = 5\nvalue = [1, 0, 0, 4, 0, 0]&#39;),
+ Text(0.013389121338912133, 0.4722222222222222, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 0, 4, 0, 0]&#39;),
+ Text(0.0200836820083682, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [1, 0, 0, 0, 0, 0]&#39;),
+ Text(0.023430962343096235, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.049372384937238493, 0.6388888888888888, &#39;x[3] &lt;= 0.24\ngini = 0.319\nsamples = 151\nvalue = [1, 8, 123, 18, 1, 0]&#39;),
+ Text(0.03682008368200837, 0.5833333333333334, &#39;x[1] &lt;= 0.106\ngini = 0.284\nsamples = 143\nvalue = [1, 7, 120, 14, 1, 0]&#39;),
+ Text(0.0301255230125523, 0.5277777777777778, &#39;x[6] &lt;= 0.148\ngini = 0.5\nsamples = 2\nvalue = [0, 1, 0, 1, 0, 0]&#39;),
+ Text(0.026778242677824266, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.03347280334728033, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.04351464435146443, 0.5277777777777778, &#39;x[1] &lt;= 0.584\ngini = 0.265\nsamples = 141\nvalue = [1, 6, 120, 13, 1, 0]&#39;),
+ Text(0.0401673640167364, 0.4722222222222222, &#39;x[0] &lt;= 0.217\ngini = 0.255\nsamples = 140\nvalue = [0, 6, 120, 13, 1, 0]&#39;),
+ Text(0.028451882845188285, 0.4166666666666667, &#39;x[2] &lt;= 0.28\ngini = 0.401\nsamples = 18\nvalue = [0, 0, 13, 5, 0, 0]&#39;),
+ Text(0.02510460251046025, 0.3611111111111111, &#39;x[6] &lt;= 0.273\ngini = 0.305\nsamples = 16\nvalue = [0, 0, 13, 3, 0, 0]&#39;),
+ Text(0.021757322175732216, 0.3055555555555556, &#39;x[3] &lt;= 0.068\ngini = 0.231\nsamples = 15\nvalue = [0, 0, 13, 2, 0, 0]&#39;),
+ Text(0.018410041841004185, 0.25, &#39;gini = 0.0\nsamples = 9\nvalue = [0, 0, 9, 0, 0, 0]&#39;),
+ Text(0.02510460251046025, 0.25, &#39;x[1] &lt;= 0.288\ngini = 0.444\nsamples = 6\nvalue = [0, 0, 4, 2, 0, 0]&#39;),
+ Text(0.021757322175732216, 0.19444444444444445, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.028451882845188285, 0.19444444444444445, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 4, 0, 0, 0]&#39;),
+ Text(0.028451882845188285, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.031799163179916316, 0.3611111111111111, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.05188284518828452, 0.4166666666666667, &#39;x[0] &lt;= 0.279\ngini = 0.224\nsamples = 122\nvalue = [0, 6, 107, 8, 1, 0]&#39;),
+ Text(0.038493723849372385, 0.3611111111111111, &#39;x[6] &lt;= 0.023\ngini = 0.037\nsamples = 53\nvalue = [0, 1, 52, 0, 0, 0]&#39;),
+ Text(0.035146443514644354, 0.3055555555555556, &#39;x[4] &lt;= 0.115\ngini = 0.444\nsamples = 3\nvalue = [0, 1, 2, 0, 0, 0]&#39;),
+ Text(0.031799163179916316, 0.25, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.038493723849372385, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.04184100418410042, 0.3055555555555556, &#39;gini = 0.0\nsamples = 50\nvalue = [0, 0, 50, 0, 0, 0]&#39;),
+ Text(0.06527196652719665, 0.3611111111111111, &#39;x[4] &lt;= 0.118\ngini = 0.346\nsamples = 69\nvalue = [0, 5, 55, 8, 1, 0]&#39;),
+ Text(0.05188284518828452, 0.3055555555555556, &#39;x[7] &lt;= 0.538\ngini = 0.512\nsamples = 32\nvalue = [0, 3, 21, 7, 1, 0]&#39;),
+ Text(0.045188284518828455, 0.25, &#39;x[7] &lt;= 0.497\ngini = 0.593\nsamples = 18\nvalue = [0, 1, 9, 7, 1, 0]&#39;),
+ Text(0.04184100418410042, 0.19444444444444445, &#39;x[9] &lt;= 0.099\ngini = 0.485\nsamples = 13\nvalue = [0, 1, 9, 2, 1, 0]&#39;),
+ Text(0.035146443514644354, 0.1388888888888889, &#39;x[7] &lt;= 0.434\ngini = 0.625\nsamples = 4\nvalue = [0, 1, 1, 2, 0, 0]&#39;),
+ Text(0.031799163179916316, 0.08333333333333333, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.038493723849372385, 0.08333333333333333, &#39;x[10] &lt;= 0.169\ngini = 0.5\nsamples = 2\nvalue = [0, 1, 1, 0, 0, 0]&#39;),
+ Text(0.035146443514644354, 0.027777777777777776, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.04184100418410042, 0.027777777777777776, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.048535564853556486, 0.1388888888888889, &#39;x[0] &lt;= 0.288\ngini = 0.198\nsamples = 9\nvalue = [0, 0, 8, 0, 1, 0]&#39;),
+ Text(0.045188284518828455, 0.08333333333333333, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.05188284518828452, 0.08333333333333333, &#39;gini = 0.0\nsamples = 8\nvalue = [0, 0, 8, 0, 0, 0]&#39;),
+ Text(0.048535564853556486, 0.19444444444444445, &#39;gini = 0.0\nsamples = 5\nvalue = [0, 0, 0, 5, 0, 0]&#39;),
+ Text(0.058577405857740586, 0.25, &#39;x[2] &lt;= 0.02\ngini = 0.245\nsamples = 14\nvalue = [0, 2, 12, 0, 0, 0]&#39;),
+ Text(0.055230125523012555, 0.19444444444444445, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.06192468619246862, 0.19444444444444445, &#39;x[4] &lt;= 0.1\ngini = 0.142\nsamples = 13\nvalue = [0, 1, 12, 0, 0, 0]&#39;),
+ Text(0.058577405857740586, 0.1388888888888889, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.06527196652719665, 0.1388888888888889, &#39;gini = 0.0\nsamples = 12\nvalue = [0, 0, 12, 0, 0, 0]&#39;),
+ Text(0.07866108786610879, 0.3055555555555556, &#39;x[8] &lt;= 0.492\ngini = 0.152\nsamples = 37\nvalue = [0, 2, 34, 1, 0, 0]&#39;),
+ Text(0.07196652719665272, 0.25, &#39;x[3] &lt;= 0.123\ngini = 0.109\nsamples = 35\nvalue = [0, 1, 33, 1, 0, 0]&#39;),
+ Text(0.06861924686192468, 0.19444444444444445, &#39;gini = 0.0\nsamples = 23\nvalue = [0, 0, 23, 0, 0, 0]&#39;),
+ Text(0.07531380753138076, 0.19444444444444445, &#39;x[2] &lt;= 0.295\ngini = 0.292\nsamples = 12\nvalue = [0, 1, 10, 1, 0, 0]&#39;),
+ Text(0.07196652719665272, 0.1388888888888889, &#39;x[0] &lt;= 0.403\ngini = 0.165\nsamples = 11\nvalue = [0, 0, 10, 1, 0, 0]&#39;),
+ Text(0.06861924686192468, 0.08333333333333333, &#39;gini = 0.0\nsamples = 9\nvalue = [0, 0, 9, 0, 0, 0]&#39;),
+ Text(0.07531380753138076, 0.08333333333333333, &#39;x[1] &lt;= 0.358\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 1, 0, 0]&#39;),
+ Text(0.07196652719665272, 0.027777777777777776, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.07866108786610879, 0.027777777777777776, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.07866108786610879, 0.1388888888888889, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.08535564853556485, 0.25, &#39;x[1] &lt;= 0.432\ngini = 0.5\nsamples = 2\nvalue = [0, 1, 1, 0, 0, 0]&#39;),
+ Text(0.08200836820083682, 0.19444444444444445, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.0887029288702929, 0.19444444444444445, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.04686192468619247, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [1, 0, 0, 0, 0, 0]&#39;),
+ Text(0.06192468619246862, 0.5833333333333334, &#39;x[5] &lt;= 0.303\ngini = 0.594\nsamples = 8\nvalue = [0, 1, 3, 4, 0, 0]&#39;),
+ Text(0.058577405857740586, 0.5277777777777778, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.06527196652719665, 0.5277777777777778, &#39;x[1] &lt;= 0.344\ngini = 0.56\nsamples = 5\nvalue = [0, 1, 3, 1, 0, 0]&#39;),
+ Text(0.06192468619246862, 0.4722222222222222, &#39;x[9] &lt;= 0.129\ngini = 0.5\nsamples = 2\nvalue = [0, 1, 0, 1, 0, 0]&#39;),
+ Text(0.058577405857740586, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.06527196652719665, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.06861924686192468, 0.4722222222222222, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 3, 0, 0, 0]&#39;),
+ Text(0.03807531380753138, 0.6944444444444444, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.1108786610878661, 0.75, &#39;x[1] &lt;= 0.154\ngini = 0.61\nsamples = 98\nvalue = [2, 9, 50, 34, 3, 0]&#39;),
+ Text(0.10753138075313808, 0.6944444444444444, &#39;gini = 0.0\nsamples = 6\nvalue = [0, 0, 0, 6, 0, 0]&#39;),
+ Text(0.11422594142259414, 0.6944444444444444, &#39;x[9] &lt;= 0.123\ngini = 0.601\nsamples = 92\nvalue = [2, 9, 50, 28, 3, 0]&#39;),
+ Text(0.08535564853556485, 0.6388888888888888, &#39;x[7] &lt;= 0.296\ngini = 0.52\nsamples = 53\nvalue = [2, 6, 35, 9, 1, 0]&#39;),
+ Text(0.08200836820083682, 0.5833333333333334, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 3, 0, 0, 0, 0]&#39;),
+ Text(0.0887029288702929, 0.5833333333333334, &#39;x[7] &lt;= 0.445\ngini = 0.472\nsamples = 50\nvalue = [2, 3, 35, 9, 1, 0]&#39;),
+ Text(0.08200836820083682, 0.5277777777777778, &#39;x[3] &lt;= 0.024\ngini = 0.185\nsamples = 20\nvalue = [1, 0, 18, 0, 1, 0]&#39;),
+ Text(0.07866108786610879, 0.4722222222222222, &#39;x[1] &lt;= 0.42\ngini = 0.5\nsamples = 2\nvalue = [1, 0, 0, 0, 1, 0]&#39;),
+ Text(0.07531380753138076, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.08200836820083682, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [1, 0, 0, 0, 0, 0]&#39;),
+ Text(0.08535564853556485, 0.4722222222222222, &#39;gini = 0.0\nsamples = 18\nvalue = [0, 0, 18, 0, 0, 0]&#39;),
+ Text(0.09539748953974896, 0.5277777777777778, &#39;x[3] &lt;= 0.065\ngini = 0.578\nsamples = 30\nvalue = [1, 3, 17, 9, 0, 0]&#39;),
+ Text(0.09205020920502092, 0.4722222222222222, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.09874476987447699, 0.4722222222222222, &#39;x[2] &lt;= 0.165\ngini = 0.54\nsamples = 27\nvalue = [1, 3, 17, 6, 0, 0]&#39;),
+ Text(0.09205020920502092, 0.4166666666666667, &#39;x[5] &lt;= 0.063\ngini = 0.18\nsamples = 10\nvalue = [1, 0, 9, 0, 0, 0]&#39;),
+ Text(0.0887029288702929, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [1, 0, 0, 0, 0, 0]&#39;),
+ Text(0.09539748953974896, 0.3611111111111111, &#39;gini = 0.0\nsamples = 9\nvalue = [0, 0, 9, 0, 0, 0]&#39;),
+ Text(0.10543933054393305, 0.4166666666666667, &#39;x[10] &lt;= 0.285\ngini = 0.623\nsamples = 17\nvalue = [0, 3, 8, 6, 0, 0]&#39;),
+ Text(0.10209205020920502, 0.3611111111111111, &#39;x[2] &lt;= 0.235\ngini = 0.625\nsamples = 12\nvalue = [0, 3, 3, 6, 0, 0]&#39;),
+ Text(0.09874476987447699, 0.3055555555555556, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 0, 4, 0, 0]&#39;),
+ Text(0.10543933054393305, 0.3055555555555556, &#39;x[0] &lt;= 0.323\ngini = 0.656\nsamples = 8\nvalue = [0, 3, 3, 2, 0, 0]&#39;),
+ Text(0.09874476987447699, 0.25, &#39;x[4] &lt;= 0.113\ngini = 0.5\nsamples = 4\nvalue = [0, 2, 0, 2, 0, 0]&#39;),
+ Text(0.09539748953974896, 0.19444444444444445, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.10209205020920502, 0.19444444444444445, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 2, 0, 0, 0, 0]&#39;),
+ Text(0.11213389121338913, 0.25, &#39;x[2] &lt;= 0.245\ngini = 0.375\nsamples = 4\nvalue = [0, 1, 3, 0, 0, 0]&#39;),
+ Text(0.1087866108786611, 0.19444444444444445, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.11548117154811716, 0.19444444444444445, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 3, 0, 0, 0]&#39;),
+ Text(0.1087866108786611, 0.3611111111111111, &#39;gini = 0.0\nsamples = 5\nvalue = [0, 0, 5, 0, 0, 0]&#39;),
+ Text(0.14309623430962343, 0.6388888888888888, &#39;x[7] &lt;= 0.393\ngini = 0.606\nsamples = 39\nvalue = [0, 3, 15, 19, 2, 0]&#39;),
+ Text(0.1397489539748954, 0.5833333333333334, &#39;gini = 0.0\nsamples = 6\nvalue = [0, 0, 0, 6, 0, 0]&#39;),
+ Text(0.14644351464435146, 0.5833333333333334, &#39;x[2] &lt;= 0.02\ngini = 0.626\nsamples = 33\nvalue = [0, 3, 15, 13, 2, 0]&#39;),
+ Text(0.14309623430962343, 0.5277777777777778, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 0, 2, 0]&#39;),
+ Text(0.1497907949790795, 0.5277777777777778, &#39;x[6] &lt;= 0.186\ngini = 0.581\nsamples = 31\nvalue = [0, 3, 15, 13, 0, 0]&#39;),
+ Text(0.14058577405857742, 0.4722222222222222, &#39;x[3] &lt;= 0.12\ngini = 0.558\nsamples = 22\nvalue = [0, 3, 13, 6, 0, 0]&#39;),
+ Text(0.1322175732217573, 0.4166666666666667, &#39;x[4] &lt;= 0.141\ngini = 0.5\nsamples = 18\nvalue = [0, 3, 12, 3, 0, 0]&#39;),
+ Text(0.12552301255230125, 0.3611111111111111, &#39;x[1] &lt;= 0.164\ngini = 0.406\nsamples = 16\nvalue = [0, 2, 12, 2, 0, 0]&#39;),
+ Text(0.12217573221757322, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.12887029288702928, 0.3055555555555556, &#39;x[6] &lt;= 0.171\ngini = 0.338\nsamples = 15\nvalue = [0, 1, 12, 2, 0, 0]&#39;),
+ Text(0.12552301255230125, 0.25, &#39;x[1] &lt;= 0.582\ngini = 0.245\nsamples = 14\nvalue = [0, 0, 12, 2, 0, 0]&#39;),
+ Text(0.12217573221757322, 0.19444444444444445, &#39;x[7] &lt;= 0.599\ngini = 0.142\nsamples = 13\nvalue = [0, 0, 12, 1, 0, 0]&#39;),
+ Text(0.11882845188284519, 0.1388888888888889, &#39;gini = 0.0\nsamples = 11\nvalue = [0, 0, 11, 0, 0, 0]&#39;),
+ Text(0.12552301255230125, 0.1388888888888889, &#39;x[6] &lt;= 0.099\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 1, 0, 0]&#39;),
+ Text(0.12217573221757322, 0.08333333333333333, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.12887029288702928, 0.08333333333333333, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.12887029288702928, 0.19444444444444445, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.1322175732217573, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.1389121338912134, 0.3611111111111111, &#39;x[2] &lt;= 0.38\ngini = 0.5\nsamples = 2\nvalue = [0, 1, 0, 1, 0, 0]&#39;),
+ Text(0.13556485355648534, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.14225941422594143, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.1489539748953975, 0.4166666666666667, &#39;x[0] &lt;= 0.363\ngini = 0.375\nsamples = 4\nvalue = [0, 0, 1, 3, 0, 0]&#39;),
+ Text(0.14560669456066946, 0.3611111111111111, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.15230125523012553, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.1589958158995816, 0.4722222222222222, &#39;x[7] &lt;= 0.615\ngini = 0.346\nsamples = 9\nvalue = [0, 0, 2, 7, 0, 0]&#39;),
+ Text(0.15564853556485356, 0.4166666666666667, &#39;gini = 0.0\nsamples = 7\nvalue = [0, 0, 0, 7, 0, 0]&#39;),
+ Text(0.16234309623430962, 0.4166666666666667, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.3768828451882845, 0.8055555555555556, &#39;x[0] &lt;= 0.473\ngini = 0.575\nsamples = 426\nvalue = [2, 6, 199, 192, 25, 2]&#39;),
+ Text(0.2859832635983264, 0.75, &#39;x[1] &lt;= 0.195\ngini = 0.553\nsamples = 336\nvalue = [0, 5, 178, 136, 16, 1]&#39;),
+ Text(0.18242677824267783, 0.6944444444444444, &#39;x[10] &lt;= 0.162\ngini = 0.619\nsamples = 57\nvalue = [0, 1, 16, 30, 9, 1]&#39;),
+ Text(0.17573221757322174, 0.6388888888888888, &#39;x[9] &lt;= 0.44\ngini = 0.219\nsamples = 8\nvalue = [0, 0, 7, 1, 0, 0]&#39;),
+ Text(0.1723849372384937, 0.5833333333333334, &#39;gini = 0.0\nsamples = 7\nvalue = [0, 0, 7, 0, 0, 0]&#39;),
+ Text(0.1790794979079498, 0.5833333333333334, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.1891213389121339, 0.6388888888888888, &#39;x[3] &lt;= 0.161\ngini = 0.581\nsamples = 49\nvalue = [0, 1, 9, 29, 9, 1]&#39;),
+ Text(0.18577405857740587, 0.5833333333333334, &#39;x[7] &lt;= 0.408\ngini = 0.546\nsamples = 46\nvalue = [0, 1, 9, 29, 6, 1]&#39;),
+ Text(0.18242677824267783, 0.5277777777777778, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 0, 2, 0]&#39;),
+ Text(0.1891213389121339, 0.5277777777777778, &#39;x[0] &lt;= 0.332\ngini = 0.514\nsamples = 44\nvalue = [0, 1, 9, 29, 4, 1]&#39;),
+ Text(0.17573221757322174, 0.4722222222222222, &#39;x[8] &lt;= 0.398\ngini = 0.367\nsamples = 28\nvalue = [0, 1, 3, 22, 1, 1]&#39;),
+ Text(0.16903765690376568, 0.4166666666666667, &#39;x[9] &lt;= 0.35\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 0, 0, 1, 1]&#39;),
+ Text(0.16569037656903765, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.1723849372384937, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 1]&#39;),
+ Text(0.18242677824267783, 0.4166666666666667, &#39;x[6] &lt;= 0.272\ngini = 0.269\nsamples = 26\nvalue = [0, 1, 3, 22, 0, 0]&#39;),
+ Text(0.1790794979079498, 0.3611111111111111, &#39;x[7] &lt;= 0.423\ngini = 0.211\nsamples = 25\nvalue = [0, 0, 3, 22, 0, 0]&#39;),
+ Text(0.17573221757322174, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.18242677824267783, 0.3055555555555556, &#39;x[7] &lt;= 0.575\ngini = 0.153\nsamples = 24\nvalue = [0, 0, 2, 22, 0, 0]&#39;),
+ Text(0.1790794979079498, 0.25, &#39;x[5] &lt;= 0.458\ngini = 0.083\nsamples = 23\nvalue = [0, 0, 1, 22, 0, 0]&#39;),
+ Text(0.17573221757322174, 0.19444444444444445, &#39;gini = 0.0\nsamples = 22\nvalue = [0, 0, 0, 22, 0, 0]&#39;),
+ Text(0.18242677824267783, 0.19444444444444445, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.18577405857740587, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.18577405857740587, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.20251046025104602, 0.4722222222222222, &#39;x[2] &lt;= 0.505\ngini = 0.633\nsamples = 16\nvalue = [0, 0, 6, 7, 3, 0]&#39;),
+ Text(0.199163179916318, 0.4166666666666667, &#39;x[9] &lt;= 0.18\ngini = 0.604\nsamples = 13\nvalue = [0, 0, 3, 7, 3, 0]&#39;),
+ Text(0.19581589958158996, 0.3611111111111111, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.20251046025104602, 0.3611111111111111, &#39;x[4] &lt;= 0.131\ngini = 0.512\nsamples = 11\nvalue = [0, 0, 1, 7, 3, 0]&#39;),
+ Text(0.19581589958158996, 0.3055555555555556, &#39;x[3] &lt;= 0.041\ngini = 0.346\nsamples = 9\nvalue = [0, 0, 0, 7, 2, 0]&#39;),
+ Text(0.19246861924686193, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.199163179916318, 0.25, &#39;x[6] &lt;= 0.2\ngini = 0.219\nsamples = 8\nvalue = [0, 0, 0, 7, 1, 0]&#39;),
+ Text(0.19581589958158996, 0.19444444444444445, &#39;gini = 0.0\nsamples = 7\nvalue = [0, 0, 0, 7, 0, 0]&#39;),
+ Text(0.20251046025104602, 0.19444444444444445, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.20920502092050208, 0.3055555555555556, &#39;x[7] &lt;= 0.59\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 0, 1, 0]&#39;),
+ Text(0.20585774058577405, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.2125523012552301, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.20585774058577405, 0.4166666666666667, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 3, 0, 0, 0]&#39;),
+ Text(0.19246861924686193, 0.5833333333333334, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 0, 3, 0]&#39;),
+ Text(0.3895397489539749, 0.6944444444444444, &#39;x[4] &lt;= 0.143\ngini = 0.518\nsamples = 279\nvalue = [0, 4, 162, 106, 7, 0]&#39;),
+ Text(0.35397489539748955, 0.6388888888888888, &#39;x[2] &lt;= 0.315\ngini = 0.532\nsamples = 214\nvalue = [0, 3, 113, 93, 5, 0]&#39;),
+ Text(0.3112970711297071, 0.5833333333333334, &#39;x[1] &lt;= 0.312\ngini = 0.526\nsamples = 184\nvalue = [0, 3, 90, 89, 2, 0]&#39;),
+ Text(0.2640167364016736, 0.5277777777777778, &#39;x[9] &lt;= 0.213\ngini = 0.484\nsamples = 80\nvalue = [0, 0, 30, 49, 1, 0]&#39;),
+ Text(0.2518828451882845, 0.4722222222222222, &#39;x[8] &lt;= 0.559\ngini = 0.516\nsamples = 59\nvalue = [0, 0, 28, 30, 1, 0]&#39;),
+ Text(0.23765690376569037, 0.4166666666666667, &#39;x[2] &lt;= 0.105\ngini = 0.498\nsamples = 47\nvalue = [0, 0, 18, 28, 1, 0]&#39;),
+ Text(0.2192468619246862, 0.3611111111111111, &#39;x[1] &lt;= 0.305\ngini = 0.153\nsamples = 12\nvalue = [0, 0, 1, 11, 0, 0]&#39;),
+ Text(0.21589958158995817, 0.3055555555555556, &#39;gini = 0.0\nsamples = 8\nvalue = [0, 0, 0, 8, 0, 0]&#39;),
+ Text(0.22259414225941423, 0.3055555555555556, &#39;x[0] &lt;= 0.221\ngini = 0.375\nsamples = 4\nvalue = [0, 0, 1, 3, 0, 0]&#39;),
+ Text(0.2192468619246862, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.22594142259414227, 0.25, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.2560669456066946, 0.3611111111111111, &#39;x[0] &lt;= 0.279\ngini = 0.527\nsamples = 35\nvalue = [0, 0, 17, 17, 1, 0]&#39;),
+ Text(0.24267782426778242, 0.3055555555555556, &#39;x[10] &lt;= 0.192\ngini = 0.507\nsamples = 23\nvalue = [0, 0, 14, 8, 1, 0]&#39;),
+ Text(0.23263598326359833, 0.25, &#39;x[4] &lt;= 0.118\ngini = 0.153\nsamples = 12\nvalue = [0, 0, 11, 0, 1, 0]&#39;),
+ Text(0.2292887029288703, 0.19444444444444445, &#39;gini = 0.0\nsamples = 10\nvalue = [0, 0, 10, 0, 0, 0]&#39;),
+ Text(0.23598326359832636, 0.19444444444444445, &#39;x[4] &lt;= 0.132\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 0, 1, 0]&#39;),
+ Text(0.23263598326359833, 0.1388888888888889, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.2393305439330544, 0.1388888888888889, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.25271966527196654, 0.25, &#39;x[4] &lt;= 0.108\ngini = 0.397\nsamples = 11\nvalue = [0, 0, 3, 8, 0, 0]&#39;),
+ Text(0.24937238493723848, 0.19444444444444445, &#39;x[3] &lt;= 0.086\ngini = 0.5\nsamples = 6\nvalue = [0, 0, 3, 3, 0, 0]&#39;),
+ Text(0.24602510460251045, 0.1388888888888889, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.25271966527196654, 0.1388888888888889, &#39;x[0] &lt;= 0.208\ngini = 0.375\nsamples = 4\nvalue = [0, 0, 1, 3, 0, 0]&#39;),
+ Text(0.24937238493723848, 0.08333333333333333, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.2560669456066946, 0.08333333333333333, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.2560669456066946, 0.19444444444444445, &#39;gini = 0.0\nsamples = 5\nvalue = [0, 0, 0, 5, 0, 0]&#39;),
+ Text(0.2694560669456067, 0.3055555555555556, &#39;x[3] &lt;= 0.134\ngini = 0.375\nsamples = 12\nvalue = [0, 0, 3, 9, 0, 0]&#39;),
+ Text(0.26610878661087867, 0.25, &#39;x[1] &lt;= 0.296\ngini = 0.18\nsamples = 10\nvalue = [0, 0, 1, 9, 0, 0]&#39;),
+ Text(0.26276150627615064, 0.19444444444444445, &#39;gini = 0.0\nsamples = 9\nvalue = [0, 0, 0, 9, 0, 0]&#39;),
+ Text(0.2694560669456067, 0.19444444444444445, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.27280334728033473, 0.25, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.26610878661087867, 0.4166666666666667, &#39;x[0] &lt;= 0.15\ngini = 0.278\nsamples = 12\nvalue = [0, 0, 10, 2, 0, 0]&#39;),
+ Text(0.26276150627615064, 0.3611111111111111, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.2694560669456067, 0.3611111111111111, &#39;gini = 0.0\nsamples = 10\nvalue = [0, 0, 10, 0, 0, 0]&#39;),
+ Text(0.27615062761506276, 0.4722222222222222, &#39;x[6] &lt;= 0.15\ngini = 0.172\nsamples = 21\nvalue = [0, 0, 2, 19, 0, 0]&#39;),
+ Text(0.27280334728033473, 0.4166666666666667, &#39;gini = 0.0\nsamples = 17\nvalue = [0, 0, 0, 17, 0, 0]&#39;),
+ Text(0.2794979079497908, 0.4166666666666667, &#39;x[0] &lt;= 0.279\ngini = 0.5\nsamples = 4\nvalue = [0, 0, 2, 2, 0, 0]&#39;),
+ Text(0.27615062761506276, 0.3611111111111111, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.2828451882845188, 0.3611111111111111, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.35857740585774056, 0.5277777777777778, &#39;x[6] &lt;= 0.216\ngini = 0.518\nsamples = 104\nvalue = [0, 3, 60, 40, 1, 0]&#39;),
+ Text(0.3372384937238494, 0.4722222222222222, &#39;x[4] &lt;= 0.132\ngini = 0.488\nsamples = 92\nvalue = [0, 2, 58, 31, 1, 0]&#39;),
+ Text(0.3179916317991632, 0.4166666666666667, &#39;x[7] &lt;= 0.558\ngini = 0.451\nsamples = 77\nvalue = [0, 2, 53, 21, 1, 0]&#39;),
+ Text(0.299581589958159, 0.3611111111111111, &#39;x[6] &lt;= 0.125\ngini = 0.382\nsamples = 59\nvalue = [0, 2, 45, 11, 1, 0]&#39;),
+ Text(0.29623430962343095, 0.3055555555555556, &#39;x[7] &lt;= 0.476\ngini = 0.491\nsamples = 41\nvalue = [0, 2, 27, 11, 1, 0]&#39;),
+ Text(0.2828451882845188, 0.25, &#39;x[3] &lt;= 0.055\ngini = 0.56\nsamples = 10\nvalue = [0, 2, 2, 6, 0, 0]&#39;),
+ Text(0.27615062761506276, 0.19444444444444445, &#39;x[4] &lt;= 0.088\ngini = 0.444\nsamples = 3\nvalue = [0, 2, 1, 0, 0, 0]&#39;),
+ Text(0.27280334728033473, 0.1388888888888889, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.2794979079497908, 0.1388888888888889, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 2, 0, 0, 0, 0]&#39;),
+ Text(0.2895397489539749, 0.19444444444444445, &#39;x[2] &lt;= 0.195\ngini = 0.245\nsamples = 7\nvalue = [0, 0, 1, 6, 0, 0]&#39;),
+ Text(0.28619246861924685, 0.1388888888888889, &#39;gini = 0.0\nsamples = 6\nvalue = [0, 0, 0, 6, 0, 0]&#39;),
+ Text(0.2928870292887029, 0.1388888888888889, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.30962343096234307, 0.25, &#39;x[4] &lt;= 0.094\ngini = 0.323\nsamples = 31\nvalue = [0, 0, 25, 5, 1, 0]&#39;),
+ Text(0.302928870292887, 0.19444444444444445, &#39;x[1] &lt;= 0.348\ngini = 0.48\nsamples = 5\nvalue = [0, 0, 2, 3, 0, 0]&#39;),
+ Text(0.299581589958159, 0.1388888888888889, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.30627615062761504, 0.1388888888888889, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.3163179916317992, 0.19444444444444445, &#39;x[1] &lt;= 0.332\ngini = 0.21\nsamples = 26\nvalue = [0, 0, 23, 2, 1, 0]&#39;),
+ Text(0.3129707112970711, 0.1388888888888889, &#39;x[5] &lt;= 0.19\ngini = 0.625\nsamples = 4\nvalue = [0, 0, 1, 2, 1, 0]&#39;),
+ Text(0.30962343096234307, 0.08333333333333333, &#39;x[10] &lt;= 0.262\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 0, 1, 0]&#39;),
+ Text(0.30627615062761504, 0.027777777777777776, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.3129707112970711, 0.027777777777777776, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.3163179916317992, 0.08333333333333333, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.3196652719665272, 0.1388888888888889, &#39;gini = 0.0\nsamples = 22\nvalue = [0, 0, 22, 0, 0, 0]&#39;),
+ Text(0.302928870292887, 0.3055555555555556, &#39;gini = 0.0\nsamples = 18\nvalue = [0, 0, 18, 0, 0, 0]&#39;),
+ Text(0.3364016736401674, 0.3611111111111111, &#39;x[4] &lt;= 0.123\ngini = 0.494\nsamples = 18\nvalue = [0, 0, 8, 10, 0, 0]&#39;),
+ Text(0.3297071129707113, 0.3055555555555556, &#39;x[5] &lt;= 0.38\ngini = 0.298\nsamples = 11\nvalue = [0, 0, 2, 9, 0, 0]&#39;),
+ Text(0.3263598326359833, 0.25, &#39;x[8] &lt;= 0.713\ngini = 0.18\nsamples = 10\nvalue = [0, 0, 1, 9, 0, 0]&#39;),
+ Text(0.32301255230125525, 0.19444444444444445, &#39;gini = 0.0\nsamples = 9\nvalue = [0, 0, 0, 9, 0, 0]&#39;),
+ Text(0.3297071129707113, 0.19444444444444445, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.33305439330543934, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.34309623430962344, 0.3055555555555556, &#39;x[4] &lt;= 0.129\ngini = 0.245\nsamples = 7\nvalue = [0, 0, 6, 1, 0, 0]&#39;),
+ Text(0.3397489539748954, 0.25, &#39;gini = 0.0\nsamples = 6\nvalue = [0, 0, 6, 0, 0, 0]&#39;),
+ Text(0.34644351464435147, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.35648535564853556, 0.4166666666666667, &#39;x[10] &lt;= 0.162\ngini = 0.444\nsamples = 15\nvalue = [0, 0, 5, 10, 0, 0]&#39;),
+ Text(0.35313807531380753, 0.3611111111111111, &#39;gini = 0.0\nsamples = 6\nvalue = [0, 0, 0, 6, 0, 0]&#39;),
+ Text(0.3598326359832636, 0.3611111111111111, &#39;x[7] &lt;= 0.62\ngini = 0.494\nsamples = 9\nvalue = [0, 0, 5, 4, 0, 0]&#39;),
+ Text(0.35648535564853556, 0.3055555555555556, &#39;x[7] &lt;= 0.523\ngini = 0.444\nsamples = 6\nvalue = [0, 0, 2, 4, 0, 0]&#39;),
+ Text(0.35313807531380753, 0.25, &#39;x[5] &lt;= 0.246\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 2, 1, 0, 0]&#39;),
+ Text(0.3497907949790795, 0.19444444444444445, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.35648535564853556, 0.19444444444444445, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.3598326359832636, 0.25, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.3631799163179916, 0.3055555555555556, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 3, 0, 0, 0]&#39;),
+ Text(0.3799163179916318, 0.4722222222222222, &#39;x[3] &lt;= 0.154\ngini = 0.403\nsamples = 12\nvalue = [0, 1, 2, 9, 0, 0]&#39;),
+ Text(0.37656903765690375, 0.4166666666666667, &#39;x[8] &lt;= 0.63\ngini = 0.314\nsamples = 11\nvalue = [0, 1, 1, 9, 0, 0]&#39;),
+ Text(0.3732217573221757, 0.3611111111111111, &#39;x[5] &lt;= 0.183\ngini = 0.18\nsamples = 10\nvalue = [0, 1, 0, 9, 0, 0]&#39;),
+ Text(0.3698744769874477, 0.3055555555555556, &#39;x[6] &lt;= 0.247\ngini = 0.5\nsamples = 2\nvalue = [0, 1, 0, 1, 0, 0]&#39;),
+ Text(0.36652719665271966, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.3732217573221757, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.37656903765690375, 0.3055555555555556, &#39;gini = 0.0\nsamples = 8\nvalue = [0, 0, 0, 8, 0, 0]&#39;),
+ Text(0.3799163179916318, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.3832635983263598, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.396652719665272, 0.5833333333333334, &#39;x[4] &lt;= 0.085\ngini = 0.384\nsamples = 30\nvalue = [0, 0, 23, 4, 3, 0]&#39;),
+ Text(0.3899581589958159, 0.5277777777777778, &#39;x[0] &lt;= 0.204\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 0, 1, 2, 0]&#39;),
+ Text(0.38661087866108784, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.39330543933054396, 0.4722222222222222, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 0, 2, 0]&#39;),
+ Text(0.40334728033472805, 0.5277777777777778, &#39;x[8] &lt;= 0.378\ngini = 0.261\nsamples = 27\nvalue = [0, 0, 23, 3, 1, 0]&#39;),
+ Text(0.4, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.4066945606694561, 0.4722222222222222, &#39;x[8] &lt;= 0.65\ngini = 0.21\nsamples = 26\nvalue = [0, 0, 23, 2, 1, 0]&#39;),
+ Text(0.40334728033472805, 0.4166666666666667, &#39;x[8] &lt;= 0.402\ngini = 0.15\nsamples = 25\nvalue = [0, 0, 23, 1, 1, 0]&#39;),
+ Text(0.396652719665272, 0.3611111111111111, &#39;x[10] &lt;= 0.185\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 2, 0, 1, 0]&#39;),
+ Text(0.39330543933054396, 0.3055555555555556, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.4, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.4100418410041841, 0.3611111111111111, &#39;x[5] &lt;= 0.324\ngini = 0.087\nsamples = 22\nvalue = [0, 0, 21, 1, 0, 0]&#39;),
+ Text(0.4066945606694561, 0.3055555555555556, &#39;gini = 0.0\nsamples = 18\nvalue = [0, 0, 18, 0, 0, 0]&#39;),
+ Text(0.41338912133891215, 0.3055555555555556, &#39;x[5] &lt;= 0.359\ngini = 0.375\nsamples = 4\nvalue = [0, 0, 3, 1, 0, 0]&#39;),
+ Text(0.4100418410041841, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.4167364016736402, 0.25, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 3, 0, 0, 0]&#39;),
+ Text(0.4100418410041841, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.4251046025104602, 0.6388888888888888, &#39;x[5] &lt;= 0.077\ngini = 0.391\nsamples = 65\nvalue = [0, 1, 49, 13, 2, 0]&#39;),
+ Text(0.41338912133891215, 0.5833333333333334, &#39;x[9] &lt;= 0.174\ngini = 0.512\nsamples = 11\nvalue = [0, 0, 3, 7, 1, 0]&#39;),
+ Text(0.4100418410041841, 0.5277777777777778, &#39;gini = 0.0\nsamples = 6\nvalue = [0, 0, 0, 6, 0, 0]&#39;),
+ Text(0.4167364016736402, 0.5277777777777778, &#39;x[0] &lt;= 0.265\ngini = 0.56\nsamples = 5\nvalue = [0, 0, 3, 1, 1, 0]&#39;),
+ Text(0.41338912133891215, 0.4722222222222222, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 3, 0, 0, 0]&#39;),
+ Text(0.4200836820083682, 0.4722222222222222, &#39;x[10] &lt;= 0.238\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 0, 1, 1, 0]&#39;),
+ Text(0.4167364016736402, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.42343096234309624, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.43682008368200836, 0.5833333333333334, &#39;x[7] &lt;= 0.427\ngini = 0.261\nsamples = 54\nvalue = [0, 1, 46, 6, 1, 0]&#39;),
+ Text(0.43347280334728033, 0.5277777777777778, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.4401673640167364, 0.5277777777777778, &#39;x[9] &lt;= 0.76\ngini = 0.211\nsamples = 52\nvalue = [0, 1, 46, 4, 1, 0]&#39;),
+ Text(0.43347280334728033, 0.4722222222222222, &#39;x[1] &lt;= 0.533\ngini = 0.15\nsamples = 50\nvalue = [0, 0, 46, 3, 1, 0]&#39;),
+ Text(0.4301255230125523, 0.4166666666666667, &#39;x[6] &lt;= 0.039\ngini = 0.115\nsamples = 49\nvalue = [0, 0, 46, 3, 0, 0]&#39;),
+ Text(0.42677824267782427, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.43347280334728033, 0.3611111111111111, &#39;x[8] &lt;= 0.142\ngini = 0.08\nsamples = 48\nvalue = [0, 0, 46, 2, 0, 0]&#39;),
+ Text(0.4301255230125523, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.43682008368200836, 0.3055555555555556, &#39;x[10] &lt;= 0.115\ngini = 0.042\nsamples = 47\nvalue = [0, 0, 46, 1, 0, 0]&#39;),
+ Text(0.43347280334728033, 0.25, &#39;x[4] &lt;= 0.497\ngini = 0.32\nsamples = 5\nvalue = [0, 0, 4, 1, 0, 0]&#39;),
+ Text(0.4301255230125523, 0.19444444444444445, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 4, 0, 0, 0]&#39;),
+ Text(0.43682008368200836, 0.19444444444444445, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.4401673640167364, 0.25, &#39;gini = 0.0\nsamples = 42\nvalue = [0, 0, 42, 0, 0, 0]&#39;),
+ Text(0.43682008368200836, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.44686192468619246, 0.4722222222222222, &#39;x[3] &lt;= 0.123\ngini = 0.5\nsamples = 2\nvalue = [0, 1, 0, 1, 0, 0]&#39;),
+ Text(0.4435146443514644, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.4502092050209205, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.46778242677824267, 0.75, &#39;x[7] &lt;= 0.578\ngini = 0.548\nsamples = 90\nvalue = [2, 1, 21, 56, 9, 1]&#39;),
+ Text(0.45690376569037655, 0.6944444444444444, &#39;x[2] &lt;= 0.51\ngini = 0.633\nsamples = 16\nvalue = [0, 0, 7, 6, 3, 0]&#39;),
+ Text(0.4535564853556485, 0.6388888888888888, &#39;x[2] &lt;= 0.485\ngini = 0.497\nsamples = 13\nvalue = [0, 0, 7, 6, 0, 0]&#39;),
+ Text(0.4502092050209205, 0.5833333333333334, &#39;x[4] &lt;= 0.166\ngini = 0.375\nsamples = 8\nvalue = [0, 0, 2, 6, 0, 0]&#39;),
+ Text(0.44686192468619246, 0.5277777777777778, &#39;gini = 0.0\nsamples = 6\nvalue = [0, 0, 0, 6, 0, 0]&#39;),
+ Text(0.4535564853556485, 0.5277777777777778, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.45690376569037655, 0.5833333333333334, &#39;gini = 0.0\nsamples = 5\nvalue = [0, 0, 5, 0, 0, 0]&#39;),
+ Text(0.4602510460251046, 0.6388888888888888, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 0, 3, 0]&#39;),
+ Text(0.4786610878661088, 0.6944444444444444, &#39;x[8] &lt;= 0.48\ngini = 0.5\nsamples = 74\nvalue = [2, 1, 14, 50, 6, 1]&#39;),
+ Text(0.4702928870292887, 0.6388888888888888, &#39;x[8] &lt;= 0.15\ngini = 0.463\nsamples = 71\nvalue = [1, 0, 13, 50, 6, 1]&#39;),
+ Text(0.4635983263598326, 0.5833333333333334, &#39;x[6] &lt;= 0.104\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 0, 0, 1, 1]&#39;),
+ Text(0.4602510460251046, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 1]&#39;),
+ Text(0.46694560669456064, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.4769874476987448, 0.5833333333333334, &#39;x[10] &lt;= 0.046\ngini = 0.434\nsamples = 69\nvalue = [1, 0, 13, 50, 5, 0]&#39;),
+ Text(0.47364016736401676, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [1, 0, 0, 0, 0, 0]&#39;),
+ Text(0.4803347280334728, 0.5277777777777778, &#39;x[9] &lt;= 0.563\ngini = 0.417\nsamples = 68\nvalue = [0, 0, 13, 50, 5, 0]&#39;),
+ Text(0.4769874476987448, 0.4722222222222222, &#39;x[4] &lt;= 0.074\ngini = 0.402\nsamples = 67\nvalue = [0, 0, 13, 50, 4, 0]&#39;),
+ Text(0.47364016736401676, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.4803347280334728, 0.4166666666666667, &#39;x[0] &lt;= 0.863\ngini = 0.385\nsamples = 66\nvalue = [0, 0, 13, 50, 3, 0]&#39;),
+ Text(0.4769874476987448, 0.3611111111111111, &#39;x[3] &lt;= 0.997\ngini = 0.367\nsamples = 65\nvalue = [0, 0, 13, 50, 2, 0]&#39;),
+ Text(0.47364016736401676, 0.3055555555555556, &#39;x[2] &lt;= 0.575\ngini = 0.354\nsamples = 64\nvalue = [0, 0, 12, 50, 2, 0]&#39;),
+ Text(0.4577405857740586, 0.25, &#39;x[9] &lt;= 0.192\ngini = 0.269\nsamples = 50\nvalue = [0, 0, 8, 42, 0, 0]&#39;),
+ Text(0.44937238493723847, 0.19444444444444445, &#39;x[1] &lt;= 0.271\ngini = 0.457\nsamples = 17\nvalue = [0, 0, 6, 11, 0, 0]&#39;),
+ Text(0.44602510460251044, 0.1388888888888889, &#39;x[3] &lt;= 0.12\ngini = 0.48\nsamples = 10\nvalue = [0, 0, 6, 4, 0, 0]&#39;),
+ Text(0.4426778242677824, 0.08333333333333333, &#39;x[4] &lt;= 0.104\ngini = 0.444\nsamples = 6\nvalue = [0, 0, 2, 4, 0, 0]&#39;),
+ Text(0.4393305439330544, 0.027777777777777776, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.44602510460251044, 0.027777777777777776, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 0, 4, 0, 0]&#39;),
+ Text(0.44937238493723847, 0.08333333333333333, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 4, 0, 0, 0]&#39;),
+ Text(0.45271966527196655, 0.1388888888888889, &#39;gini = 0.0\nsamples = 7\nvalue = [0, 0, 0, 7, 0, 0]&#39;),
+ Text(0.4661087866108787, 0.19444444444444445, &#39;x[1] &lt;= 0.339\ngini = 0.114\nsamples = 33\nvalue = [0, 0, 2, 31, 0, 0]&#39;),
+ Text(0.4594142259414226, 0.1388888888888889, &#39;x[6] &lt;= 0.037\ngini = 0.062\nsamples = 31\nvalue = [0, 0, 1, 30, 0, 0]&#39;),
+ Text(0.4560669456066946, 0.08333333333333333, &#39;x[3] &lt;= 0.086\ngini = 0.278\nsamples = 6\nvalue = [0, 0, 1, 5, 0, 0]&#39;),
+ Text(0.45271966527196655, 0.027777777777777776, &#39;gini = 0.0\nsamples = 5\nvalue = [0, 0, 0, 5, 0, 0]&#39;),
+ Text(0.4594142259414226, 0.027777777777777776, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.46276150627615065, 0.08333333333333333, &#39;gini = 0.0\nsamples = 25\nvalue = [0, 0, 0, 25, 0, 0]&#39;),
+ Text(0.47280334728033474, 0.1388888888888889, &#39;x[7] &lt;= 0.722\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 1, 0, 0]&#39;),
+ Text(0.4694560669456067, 0.08333333333333333, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.47615062761506277, 0.08333333333333333, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.4895397489539749, 0.25, &#39;x[7] &lt;= 0.703\ngini = 0.571\nsamples = 14\nvalue = [0, 0, 4, 8, 2, 0]&#39;),
+ Text(0.48284518828451883, 0.19444444444444445, &#39;x[7] &lt;= 0.615\ngini = 0.444\nsamples = 6\nvalue = [0, 0, 4, 2, 0, 0]&#39;),
+ Text(0.4794979079497908, 0.1388888888888889, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.48619246861924686, 0.1388888888888889, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 4, 0, 0, 0]&#39;),
+ Text(0.49623430962343096, 0.19444444444444445, &#39;x[3] &lt;= 0.144\ngini = 0.375\nsamples = 8\nvalue = [0, 0, 0, 6, 2, 0]&#39;),
+ Text(0.4928870292887029, 0.1388888888888889, &#39;gini = 0.0\nsamples = 6\nvalue = [0, 0, 0, 6, 0, 0]&#39;),
+ Text(0.499581589958159, 0.1388888888888889, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 0, 2, 0]&#39;),
+ Text(0.4803347280334728, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.48368200836820086, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.48368200836820086, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.4870292887029289, 0.6388888888888888, &#39;x[1] &lt;= 0.168\ngini = 0.667\nsamples = 3\nvalue = [1, 1, 1, 0, 0, 0]&#39;),
+ Text(0.48368200836820086, 0.5833333333333334, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.4903765690376569, 0.5833333333333334, &#39;x[5] &lt;= 0.479\ngini = 0.5\nsamples = 2\nvalue = [1, 1, 0, 0, 0, 0]&#39;),
+ Text(0.4870292887029289, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [1, 0, 0, 0, 0, 0]&#39;),
+ Text(0.49372384937238495, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.507112970711297, 0.8611111111111112, &#39;x[9] &lt;= 0.506\ngini = 0.136\nsamples = 97\nvalue = [0, 1, 90, 5, 1, 0]&#39;),
+ Text(0.500418410041841, 0.8055555555555556, &#39;x[3] &lt;= 0.048\ngini = 0.085\nsamples = 91\nvalue = [0, 1, 87, 2, 1, 0]&#39;),
+ Text(0.497071129707113, 0.75, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.503765690376569, 0.75, &#39;x[1] &lt;= 0.14\ngini = 0.065\nsamples = 90\nvalue = [0, 0, 87, 2, 1, 0]&#39;),
+ Text(0.497071129707113, 0.6944444444444444, &#39;x[4] &lt;= 0.094\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 0, 1, 0]&#39;),
+ Text(0.49372384937238495, 0.6388888888888888, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.500418410041841, 0.6388888888888888, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.5104602510460251, 0.6944444444444444, &#39;x[7] &lt;= 0.44\ngini = 0.044\nsamples = 88\nvalue = [0, 0, 86, 2, 0, 0]&#39;),
+ Text(0.507112970711297, 0.6388888888888888, &#39;x[10] &lt;= 0.223\ngini = 0.346\nsamples = 9\nvalue = [0, 0, 7, 2, 0, 0]&#39;),
+ Text(0.503765690376569, 0.5833333333333334, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.5104602510460251, 0.5833333333333334, &#39;gini = 0.0\nsamples = 7\nvalue = [0, 0, 7, 0, 0, 0]&#39;),
+ Text(0.5138075313807532, 0.6388888888888888, &#39;gini = 0.0\nsamples = 79\nvalue = [0, 0, 79, 0, 0, 0]&#39;),
+ Text(0.5138075313807532, 0.8055555555555556, &#39;x[10] &lt;= 0.223\ngini = 0.5\nsamples = 6\nvalue = [0, 0, 3, 3, 0, 0]&#39;),
+ Text(0.5104602510460251, 0.75, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 3, 0, 0, 0]&#39;),
+ Text(0.5171548117154812, 0.75, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.761244769874477, 0.9166666666666666, &#39;x[10] &lt;= 0.485\ngini = 0.644\nsamples = 493\nvalue = [3, 16, 86, 250, 127, 11]&#39;),
+ Text(0.6406903765690377, 0.8611111111111112, &#39;x[9] &lt;= 0.153\ngini = 0.627\nsamples = 299\nvalue = [3, 13, 73, 160, 47, 3]&#39;),
+ Text(0.5824267782426779, 0.8055555555555556, &#39;x[5] &lt;= 0.218\ngini = 0.677\nsamples = 78\nvalue = [3, 10, 34, 26, 5, 0]&#39;),
+ Text(0.5539748953974896, 0.75, &#39;x[7] &lt;= 0.448\ngini = 0.656\nsamples = 60\nvalue = [3, 7, 31, 14, 5, 0]&#39;),
+ Text(0.5322175732217573, 0.6944444444444444, &#39;x[2] &lt;= 0.475\ngini = 0.718\nsamples = 33\nvalue = [1, 4, 12, 11, 5, 0]&#39;),
+ Text(0.5288702928870292, 0.6388888888888888, &#39;x[6] &lt;= 0.016\ngini = 0.722\nsamples = 30\nvalue = [1, 4, 12, 8, 5, 0]&#39;),
+ Text(0.5171548117154812, 0.5833333333333334, &#39;x[1] &lt;= 0.168\ngini = 0.694\nsamples = 7\nvalue = [1, 1, 0, 2, 3, 0]&#39;),
+ Text(0.5138075313807532, 0.5277777777777778, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 0, 3, 0]&#39;),
+ Text(0.5205020920502093, 0.5277777777777778, &#39;x[9] &lt;= 0.084\ngini = 0.625\nsamples = 4\nvalue = [1, 1, 0, 2, 0, 0]&#39;),
+ Text(0.5171548117154812, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [1, 0, 0, 0, 0, 0]&#39;),
+ Text(0.5238493723849372, 0.4722222222222222, &#39;x[2] &lt;= 0.2\ngini = 0.444\nsamples = 3\nvalue = [0, 1, 0, 2, 0, 0]&#39;),
+ Text(0.5205020920502093, 0.4166666666666667, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.5271966527196653, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.5405857740585774, 0.5833333333333334, &#39;x[5] &lt;= 0.077\ngini = 0.635\nsamples = 23\nvalue = [0, 3, 12, 6, 2, 0]&#39;),
+ Text(0.5338912133891214, 0.5277777777777778, &#39;x[10] &lt;= 0.469\ngini = 0.219\nsamples = 8\nvalue = [0, 1, 7, 0, 0, 0]&#39;),
+ Text(0.5305439330543933, 0.4722222222222222, &#39;gini = 0.0\nsamples = 7\nvalue = [0, 0, 7, 0, 0, 0]&#39;),
+ Text(0.5372384937238494, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.5472803347280335, 0.5277777777777778, &#39;x[6] &lt;= 0.125\ngini = 0.693\nsamples = 15\nvalue = [0, 2, 5, 6, 2, 0]&#39;),
+ Text(0.5439330543933054, 0.4722222222222222, &#39;x[2] &lt;= 0.155\ngini = 0.686\nsamples = 13\nvalue = [0, 2, 3, 6, 2, 0]&#39;),
+ Text(0.5372384937238494, 0.4166666666666667, &#39;x[6] &lt;= 0.088\ngini = 0.571\nsamples = 7\nvalue = [0, 2, 0, 4, 1, 0]&#39;),
+ Text(0.5338912133891214, 0.3611111111111111, &#39;x[8] &lt;= 0.531\ngini = 0.625\nsamples = 4\nvalue = [0, 2, 0, 1, 1, 0]&#39;),
+ Text(0.5305439330543933, 0.3055555555555556, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 2, 0, 0, 0, 0]&#39;),
+ Text(0.5372384937238494, 0.3055555555555556, &#39;x[2] &lt;= 0.02\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 0, 1, 1, 0]&#39;),
+ Text(0.5338912133891214, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.5405857740585774, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.5405857740585774, 0.3611111111111111, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.5506276150627615, 0.4166666666666667, &#39;x[9] &lt;= 0.12\ngini = 0.611\nsamples = 6\nvalue = [0, 0, 3, 2, 1, 0]&#39;),
+ Text(0.5472803347280335, 0.3611111111111111, &#39;x[3] &lt;= 0.113\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 0, 2, 1, 0]&#39;),
+ Text(0.5439330543933054, 0.3055555555555556, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.5506276150627615, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.5539748953974896, 0.3611111111111111, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 3, 0, 0, 0]&#39;),
+ Text(0.5506276150627615, 0.4722222222222222, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.5355648535564853, 0.6388888888888888, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.5757322175732218, 0.6944444444444444, &#39;x[2] &lt;= 0.11\ngini = 0.475\nsamples = 27\nvalue = [2, 3, 19, 3, 0, 0]&#39;),
+ Text(0.5640167364016736, 0.6388888888888888, &#39;x[7] &lt;= 0.474\ngini = 0.708\nsamples = 12\nvalue = [2, 3, 5, 2, 0, 0]&#39;),
+ Text(0.5573221757322175, 0.5833333333333334, &#39;x[2] &lt;= 0.06\ngini = 0.278\nsamples = 6\nvalue = [0, 1, 5, 0, 0, 0]&#39;),
+ Text(0.5539748953974896, 0.5277777777777778, &#39;gini = 0.0\nsamples = 5\nvalue = [0, 0, 5, 0, 0, 0]&#39;),
+ Text(0.5606694560669456, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.5707112970711297, 0.5833333333333334, &#39;x[4] &lt;= 0.148\ngini = 0.667\nsamples = 6\nvalue = [2, 2, 0, 2, 0, 0]&#39;),
+ Text(0.5673640167364017, 0.5277777777777778, &#39;x[9] &lt;= 0.135\ngini = 0.5\nsamples = 4\nvalue = [2, 2, 0, 0, 0, 0]&#39;),
+ Text(0.5640167364016736, 0.4722222222222222, &#39;gini = 0.0\nsamples = 2\nvalue = [2, 0, 0, 0, 0, 0]&#39;),
+ Text(0.5707112970711297, 0.4722222222222222, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 2, 0, 0, 0, 0]&#39;),
+ Text(0.5740585774058578, 0.5277777777777778, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.5874476987447699, 0.6388888888888888, &#39;x[10] &lt;= 0.369\ngini = 0.124\nsamples = 15\nvalue = [0, 0, 14, 1, 0, 0]&#39;),
+ Text(0.5841004184100418, 0.5833333333333334, &#39;x[7] &lt;= 0.543\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 2, 1, 0, 0]&#39;),
+ Text(0.5807531380753138, 0.5277777777777778, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.5874476987447699, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.590794979079498, 0.5833333333333334, &#39;gini = 0.0\nsamples = 12\nvalue = [0, 0, 12, 0, 0, 0]&#39;),
+ Text(0.6108786610878661, 0.75, &#39;x[8] &lt;= 0.61\ngini = 0.5\nsamples = 18\nvalue = [0, 3, 3, 12, 0, 0]&#39;),
+ Text(0.6041841004184101, 0.6944444444444444, &#39;x[3] &lt;= 0.12\ngini = 0.245\nsamples = 14\nvalue = [0, 0, 2, 12, 0, 0]&#39;),
+ Text(0.600836820083682, 0.6388888888888888, &#39;x[9] &lt;= 0.078\ngini = 0.142\nsamples = 13\nvalue = [0, 0, 1, 12, 0, 0]&#39;),
+ Text(0.597489539748954, 0.5833333333333334, &#39;x[8] &lt;= 0.591\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 1, 0, 0]&#39;),
+ Text(0.5941422594142259, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.600836820083682, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.6041841004184101, 0.5833333333333334, &#39;gini = 0.0\nsamples = 11\nvalue = [0, 0, 0, 11, 0, 0]&#39;),
+ Text(0.6075313807531381, 0.6388888888888888, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.6175732217573222, 0.6944444444444444, &#39;x[1] &lt;= 0.411\ngini = 0.375\nsamples = 4\nvalue = [0, 3, 1, 0, 0, 0]&#39;),
+ Text(0.6142259414225941, 0.6388888888888888, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.6209205020920502, 0.6388888888888888, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 3, 0, 0, 0, 0]&#39;),
+ Text(0.6989539748953975, 0.8055555555555556, &#39;x[1] &lt;= 0.175\ngini = 0.565\nsamples = 221\nvalue = [0, 3, 39, 134, 42, 3]&#39;),
+ Text(0.6602510460251046, 0.75, &#39;x[0] &lt;= 0.518\ngini = 0.665\nsamples = 76\nvalue = [0, 0, 15, 32, 26, 3]&#39;),
+ Text(0.6426778242677824, 0.6944444444444444, &#39;x[6] &lt;= 0.178\ngini = 0.629\nsamples = 57\nvalue = [0, 0, 14, 29, 13, 1]&#39;),
+ Text(0.6276150627615062, 0.6388888888888888, &#39;x[7] &lt;= 0.394\ngini = 0.584\nsamples = 44\nvalue = [0, 0, 6, 25, 12, 1]&#39;),
+ Text(0.6175732217573222, 0.5833333333333334, &#39;x[2] &lt;= 0.51\ngini = 0.602\nsamples = 14\nvalue = [0, 0, 2, 3, 8, 1]&#39;),
+ Text(0.6142259414225941, 0.5277777777777778, &#39;x[7] &lt;= 0.321\ngini = 0.514\nsamples = 12\nvalue = [0, 0, 2, 1, 8, 1]&#39;),
+ Text(0.6075313807531381, 0.4722222222222222, &#39;x[3] &lt;= 0.051\ngini = 0.667\nsamples = 3\nvalue = [0, 0, 1, 1, 0, 1]&#39;),
+ Text(0.6041841004184101, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.6108786610878661, 0.4166666666666667, &#39;x[4] &lt;= 0.093\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 0, 0, 1]&#39;),
+ Text(0.6075313807531381, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.6142259414225941, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 1]&#39;),
+ Text(0.6209205020920502, 0.4722222222222222, &#39;x[9] &lt;= 0.177\ngini = 0.198\nsamples = 9\nvalue = [0, 0, 1, 0, 8, 0]&#39;),
+ Text(0.6175732217573222, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.6242677824267783, 0.4166666666666667, &#39;gini = 0.0\nsamples = 8\nvalue = [0, 0, 0, 0, 8, 0]&#39;),
+ Text(0.6209205020920502, 0.5277777777777778, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.6376569037656904, 0.5833333333333334, &#39;x[10] &lt;= 0.362\ngini = 0.427\nsamples = 30\nvalue = [0, 0, 4, 22, 4, 0]&#39;),
+ Text(0.6309623430962343, 0.5277777777777778, &#39;x[5] &lt;= 0.176\ngini = 0.594\nsamples = 8\nvalue = [0, 0, 4, 3, 1, 0]&#39;),
+ Text(0.6276150627615062, 0.4722222222222222, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 4, 0, 0, 0]&#39;),
+ Text(0.6343096234309623, 0.4722222222222222, &#39;x[2] &lt;= 0.42\ngini = 0.375\nsamples = 4\nvalue = [0, 0, 0, 3, 1, 0]&#39;),
+ Text(0.6309623430962343, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.6376569037656904, 0.4166666666666667, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.6443514644351465, 0.5277777777777778, &#39;x[4] &lt;= 0.077\ngini = 0.236\nsamples = 22\nvalue = [0, 0, 0, 19, 3, 0]&#39;),
+ Text(0.6410041841004184, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.6476987447698744, 0.4722222222222222, &#39;x[7] &lt;= 0.685\ngini = 0.172\nsamples = 21\nvalue = [0, 0, 0, 19, 2, 0]&#39;),
+ Text(0.6443514644351465, 0.4166666666666667, &#39;x[0] &lt;= 0.288\ngini = 0.095\nsamples = 20\nvalue = [0, 0, 0, 19, 1, 0]&#39;),
+ Text(0.6410041841004184, 0.3611111111111111, &#39;x[7] &lt;= 0.504\ngini = 0.375\nsamples = 4\nvalue = [0, 0, 0, 3, 1, 0]&#39;),
+ Text(0.6376569037656904, 0.3055555555555556, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.6443514644351465, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.6476987447698744, 0.3611111111111111, &#39;gini = 0.0\nsamples = 16\nvalue = [0, 0, 0, 16, 0, 0]&#39;),
+ Text(0.6510460251046025, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.6577405857740586, 0.6388888888888888, &#39;x[0] &lt;= 0.252\ngini = 0.521\nsamples = 13\nvalue = [0, 0, 8, 4, 1, 0]&#39;),
+ Text(0.6543933054393305, 0.5833333333333334, &#39;gini = 0.0\nsamples = 5\nvalue = [0, 0, 5, 0, 0, 0]&#39;),
+ Text(0.6610878661087866, 0.5833333333333334, &#39;x[2] &lt;= 0.34\ngini = 0.594\nsamples = 8\nvalue = [0, 0, 3, 4, 1, 0]&#39;),
+ Text(0.6577405857740586, 0.5277777777777778, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.6644351464435146, 0.5277777777777778, &#39;x[5] &lt;= 0.627\ngini = 0.56\nsamples = 5\nvalue = [0, 0, 3, 1, 1, 0]&#39;),
+ Text(0.6610878661087866, 0.4722222222222222, &#39;x[0] &lt;= 0.274\ngini = 0.375\nsamples = 4\nvalue = [0, 0, 3, 1, 0, 0]&#39;),
+ Text(0.6577405857740586, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.6644351464435146, 0.4166666666666667, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 3, 0, 0, 0]&#39;),
+ Text(0.6677824267782427, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.6778242677824268, 0.6944444444444444, &#39;x[9] &lt;= 0.198\ngini = 0.493\nsamples = 19\nvalue = [0, 0, 1, 3, 13, 2]&#39;),
+ Text(0.6711297071129707, 0.6388888888888888, &#39;x[0] &lt;= 0.642\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 1, 0, 0, 2]&#39;),
+ Text(0.6677824267782427, 0.5833333333333334, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 0, 0, 2]&#39;),
+ Text(0.6744769874476988, 0.5833333333333334, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.6845188284518828, 0.6388888888888888, &#39;x[8] &lt;= 0.39\ngini = 0.305\nsamples = 16\nvalue = [0, 0, 0, 3, 13, 0]&#39;),
+ Text(0.6811715481171549, 0.5833333333333334, &#39;gini = 0.0\nsamples = 12\nvalue = [0, 0, 0, 0, 12, 0]&#39;),
+ Text(0.6878661087866109, 0.5833333333333334, &#39;x[9] &lt;= 0.335\ngini = 0.375\nsamples = 4\nvalue = [0, 0, 0, 3, 1, 0]&#39;),
+ Text(0.6845188284518828, 0.5277777777777778, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.6912133891213389, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.7376569037656904, 0.75, &#39;x[3] &lt;= 0.14\ngini = 0.465\nsamples = 145\nvalue = [0, 3, 24, 102, 16, 0]&#39;),
+ Text(0.7163179916317992, 0.6944444444444444, &#39;x[6] &lt;= 0.242\ngini = 0.375\nsamples = 123\nvalue = [0, 1, 19, 95, 8, 0]&#39;),
+ Text(0.7079497907949791, 0.6388888888888888, &#39;x[8] &lt;= 0.685\ngini = 0.318\nsamples = 114\nvalue = [0, 1, 12, 93, 8, 0]&#39;),
+ Text(0.701255230125523, 0.5833333333333334, &#39;x[10] &lt;= 0.335\ngini = 0.296\nsamples = 112\nvalue = [0, 0, 11, 93, 8, 0]&#39;),
+ Text(0.697907949790795, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.704602510460251, 0.5277777777777778, &#39;x[4] &lt;= 0.074\ngini = 0.284\nsamples = 111\nvalue = [0, 0, 11, 93, 7, 0]&#39;),
+ Text(0.6853556485355649, 0.4722222222222222, &#39;x[6] &lt;= 0.072\ngini = 0.463\nsamples = 11\nvalue = [0, 0, 4, 7, 0, 0]&#39;),
+ Text(0.6820083682008368, 0.4166666666666667, &#39;gini = 0.0\nsamples = 6\nvalue = [0, 0, 0, 6, 0, 0]&#39;),
+ Text(0.6887029288702929, 0.4166666666666667, &#39;x[0] &lt;= 0.372\ngini = 0.32\nsamples = 5\nvalue = [0, 0, 4, 1, 0, 0]&#39;),
+ Text(0.6853556485355649, 0.3611111111111111, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 4, 0, 0, 0]&#39;),
+ Text(0.6920502092050209, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.7238493723849372, 0.4722222222222222, &#39;x[7] &lt;= 0.456\ngini = 0.251\nsamples = 100\nvalue = [0, 0, 7, 86, 7, 0]&#39;),
+ Text(0.705439330543933, 0.4166666666666667, &#39;x[4] &lt;= 0.179\ngini = 0.07\nsamples = 55\nvalue = [0, 0, 0, 53, 2, 0]&#39;),
+ Text(0.698744769874477, 0.3611111111111111, &#39;x[8] &lt;= 0.323\ngini = 0.037\nsamples = 53\nvalue = [0, 0, 0, 52, 1, 0]&#39;),
+ Text(0.695397489539749, 0.3055555555555556, &#39;x[1] &lt;= 0.216\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 0, 2, 1, 0]&#39;),
+ Text(0.6920502092050209, 0.25, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.698744769874477, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.7020920502092051, 0.3055555555555556, &#39;gini = 0.0\nsamples = 50\nvalue = [0, 0, 0, 50, 0, 0]&#39;),
+ Text(0.7121338912133891, 0.3611111111111111, &#39;x[3] &lt;= 0.11\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 0, 1, 1, 0]&#39;),
+ Text(0.7087866108786611, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.7154811715481172, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.7422594142259414, 0.4166666666666667, &#39;x[2] &lt;= 0.355\ngini = 0.426\nsamples = 45\nvalue = [0, 0, 7, 33, 5, 0]&#39;),
+ Text(0.7288702928870293, 0.3611111111111111, &#39;x[2] &lt;= 0.28\ngini = 0.637\nsamples = 19\nvalue = [0, 0, 5, 9, 5, 0]&#39;),
+ Text(0.7221757322175733, 0.3055555555555556, &#39;x[5] &lt;= 0.275\ngini = 0.5\nsamples = 14\nvalue = [0, 0, 1, 9, 4, 0]&#39;),
+ Text(0.7188284518828452, 0.25, &#39;x[1] &lt;= 0.375\ngini = 0.594\nsamples = 8\nvalue = [0, 0, 1, 3, 4, 0]&#39;),
+ Text(0.7121338912133891, 0.19444444444444445, &#39;x[6] &lt;= 0.064\ngini = 0.32\nsamples = 5\nvalue = [0, 0, 0, 1, 4, 0]&#39;),
+ Text(0.7087866108786611, 0.1388888888888889, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.7154811715481172, 0.1388888888888889, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 0, 0, 4, 0]&#39;),
+ Text(0.7255230125523012, 0.19444444444444445, &#39;x[3] &lt;= 0.075\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 1, 2, 0, 0]&#39;),
+ Text(0.7221757322175733, 0.1388888888888889, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.7288702928870293, 0.1388888888888889, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.7255230125523012, 0.25, &#39;gini = 0.0\nsamples = 6\nvalue = [0, 0, 0, 6, 0, 0]&#39;),
+ Text(0.7355648535564854, 0.3055555555555556, &#39;x[7] &lt;= 0.479\ngini = 0.32\nsamples = 5\nvalue = [0, 0, 4, 0, 1, 0]&#39;),
+ Text(0.7322175732217573, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.7389121338912134, 0.25, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 4, 0, 0, 0]&#39;),
+ Text(0.7556485355648536, 0.3611111111111111, &#39;x[9] &lt;= 0.299\ngini = 0.142\nsamples = 26\nvalue = [0, 0, 2, 24, 0, 0]&#39;),
+ Text(0.7489539748953975, 0.3055555555555556, &#39;x[4] &lt;= 0.158\ngini = 0.08\nsamples = 24\nvalue = [0, 0, 1, 23, 0, 0]&#39;),
+ Text(0.7456066945606694, 0.25, &#39;gini = 0.0\nsamples = 20\nvalue = [0, 0, 0, 20, 0, 0]&#39;),
+ Text(0.7523012552301255, 0.25, &#39;x[4] &lt;= 0.171\ngini = 0.375\nsamples = 4\nvalue = [0, 0, 1, 3, 0, 0]&#39;),
+ Text(0.7489539748953975, 0.19444444444444445, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.7556485355648536, 0.19444444444444445, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.7623430962343096, 0.3055555555555556, &#39;x[2] &lt;= 0.485\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 1, 0, 0]&#39;),
+ Text(0.7589958158995815, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.7656903765690377, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.7146443514644352, 0.5833333333333334, &#39;x[2] &lt;= 0.095\ngini = 0.5\nsamples = 2\nvalue = [0, 1, 1, 0, 0, 0]&#39;),
+ Text(0.7112970711297071, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.7179916317991631, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.7246861924686192, 0.6388888888888888, &#39;x[8] &lt;= 0.472\ngini = 0.346\nsamples = 9\nvalue = [0, 0, 7, 2, 0, 0]&#39;),
+ Text(0.7213389121338912, 0.5833333333333334, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.7280334728033473, 0.5833333333333334, &#39;gini = 0.0\nsamples = 7\nvalue = [0, 0, 7, 0, 0, 0]&#39;),
+ Text(0.7589958158995815, 0.6944444444444444, &#39;x[10] &lt;= 0.392\ngini = 0.707\nsamples = 22\nvalue = [0, 2, 5, 7, 8, 0]&#39;),
+ Text(0.7556485355648536, 0.6388888888888888, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 0, 3, 0]&#39;),
+ Text(0.7623430962343096, 0.6388888888888888, &#39;x[4] &lt;= 0.112\ngini = 0.715\nsamples = 19\nvalue = [0, 2, 5, 7, 5, 0]&#39;),
+ Text(0.7589958158995815, 0.5833333333333334, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 0, 4, 0, 0]&#39;),
+ Text(0.7656903765690377, 0.5833333333333334, &#39;x[7] &lt;= 0.477\ngini = 0.72\nsamples = 15\nvalue = [0, 2, 5, 3, 5, 0]&#39;),
+ Text(0.7623430962343096, 0.5277777777777778, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.7690376569037657, 0.5277777777777778, &#39;x[8] &lt;= 0.52\ngini = 0.675\nsamples = 13\nvalue = [0, 2, 5, 1, 5, 0]&#39;),
+ Text(0.7656903765690377, 0.4722222222222222, &#39;x[10] &lt;= 0.423\ngini = 0.579\nsamples = 11\nvalue = [0, 0, 5, 1, 5, 0]&#39;),
+ Text(0.7623430962343096, 0.4166666666666667, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 3, 0, 0, 0]&#39;),
+ Text(0.7690376569037657, 0.4166666666666667, &#39;x[5] &lt;= 0.063\ngini = 0.531\nsamples = 8\nvalue = [0, 0, 2, 1, 5, 0]&#39;),
+ Text(0.7656903765690377, 0.3611111111111111, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 2, 0, 0, 0]&#39;),
+ Text(0.7723849372384938, 0.3611111111111111, &#39;x[9] &lt;= 0.323\ngini = 0.278\nsamples = 6\nvalue = [0, 0, 0, 1, 5, 0]&#39;),
+ Text(0.7690376569037657, 0.3055555555555556, &#39;gini = 0.0\nsamples = 5\nvalue = [0, 0, 0, 0, 5, 0]&#39;),
+ Text(0.7757322175732217, 0.3055555555555556, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.7723849372384938, 0.4722222222222222, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 2, 0, 0, 0, 0]&#39;),
+ Text(0.8817991631799164, 0.8611111111111112, &#39;x[9] &lt;= 0.213\ngini = 0.608\nsamples = 194\nvalue = [0, 3, 13, 90, 80, 8]&#39;),
+ Text(0.8117154811715481, 0.8055555555555556, &#39;x[6] &lt;= 0.034\ngini = 0.558\nsamples = 104\nvalue = [0, 3, 11, 63, 26, 1]&#39;),
+ Text(0.7841004184100419, 0.75, &#39;x[9] &lt;= 0.129\ngini = 0.554\nsamples = 27\nvalue = [0, 1, 2, 8, 16, 0]&#39;),
+ Text(0.7723849372384938, 0.6944444444444444, &#39;x[6] &lt;= 0.019\ngini = 0.449\nsamples = 7\nvalue = [0, 0, 1, 5, 1, 0]&#39;),
+ Text(0.7690376569037657, 0.6388888888888888, &#39;gini = 0.0\nsamples = 5\nvalue = [0, 0, 0, 5, 0, 0]&#39;),
+ Text(0.7757322175732217, 0.6388888888888888, &#39;x[3] &lt;= 0.418\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 0, 1, 0]&#39;),
+ Text(0.7723849372384938, 0.5833333333333334, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.7790794979079498, 0.5833333333333334, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.7958158995815899, 0.6944444444444444, &#39;x[4] &lt;= 0.119\ngini = 0.41\nsamples = 20\nvalue = [0, 1, 1, 3, 15, 0]&#39;),
+ Text(0.792468619246862, 0.6388888888888888, &#39;x[8] &lt;= 0.472\ngini = 0.64\nsamples = 10\nvalue = [0, 1, 1, 3, 5, 0]&#39;),
+ Text(0.7857740585774059, 0.5833333333333334, &#39;x[3] &lt;= 0.24\ngini = 0.56\nsamples = 5\nvalue = [0, 1, 0, 3, 1, 0]&#39;),
+ Text(0.7824267782426778, 0.5277777777777778, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 3, 0, 0]&#39;),
+ Text(0.7891213389121339, 0.5277777777777778, &#39;x[5] &lt;= 0.056\ngini = 0.5\nsamples = 2\nvalue = [0, 1, 0, 0, 1, 0]&#39;),
+ Text(0.7857740585774059, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 1, 0, 0, 0, 0]&#39;),
+ Text(0.792468619246862, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.799163179916318, 0.5833333333333334, &#39;x[8] &lt;= 0.559\ngini = 0.32\nsamples = 5\nvalue = [0, 0, 1, 0, 4, 0]&#39;),
+ Text(0.7958158995815899, 0.5277777777777778, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 0, 0, 4, 0]&#39;),
+ Text(0.802510460251046, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.799163179916318, 0.6388888888888888, &#39;gini = 0.0\nsamples = 10\nvalue = [0, 0, 0, 0, 10, 0]&#39;),
+ Text(0.8393305439330544, 0.75, &#39;x[4] &lt;= 0.078\ngini = 0.458\nsamples = 77\nvalue = [0, 2, 9, 55, 10, 1]&#39;),
+ Text(0.8158995815899581, 0.6944444444444444, &#39;x[1] &lt;= 0.253\ngini = 0.665\nsamples = 23\nvalue = [0, 2, 6, 11, 4, 0]&#39;),
+ Text(0.8092050209205021, 0.6388888888888888, &#39;x[6] &lt;= 0.297\ngini = 0.426\nsamples = 13\nvalue = [0, 0, 0, 9, 4, 0]&#39;),
+ Text(0.8058577405857741, 0.5833333333333334, &#39;gini = 0.0\nsamples = 7\nvalue = [0, 0, 0, 7, 0, 0]&#39;),
+ Text(0.8125523012552301, 0.5833333333333334, &#39;x[10] &lt;= 0.631\ngini = 0.444\nsamples = 6\nvalue = [0, 0, 0, 2, 4, 0]&#39;),
+ Text(0.8092050209205021, 0.5277777777777778, &#39;gini = 0.0\nsamples = 4\nvalue = [0, 0, 0, 0, 4, 0]&#39;),
+ Text(0.8158995815899581, 0.5277777777777778, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.8225941422594142, 0.6388888888888888, &#39;x[7] &lt;= 0.231\ngini = 0.56\nsamples = 10\nvalue = [0, 2, 6, 2, 0, 0]&#39;),
+ Text(0.8192468619246862, 0.5833333333333334, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.8259414225941423, 0.5833333333333334, &#39;x[4] &lt;= 0.069\ngini = 0.375\nsamples = 8\nvalue = [0, 2, 6, 0, 0, 0]&#39;),
+ Text(0.8225941422594142, 0.5277777777777778, &#39;gini = 0.0\nsamples = 5\nvalue = [0, 0, 5, 0, 0, 0]&#39;),
+ Text(0.8292887029288702, 0.5277777777777778, &#39;x[9] &lt;= 0.117\ngini = 0.444\nsamples = 3\nvalue = [0, 2, 1, 0, 0, 0]&#39;),
+ Text(0.8259414225941423, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.8326359832635983, 0.4722222222222222, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 2, 0, 0, 0, 0]&#39;),
+ Text(0.8627615062761507, 0.6944444444444444, &#39;x[8] &lt;= 0.22\ngini = 0.32\nsamples = 54\nvalue = [0, 0, 3, 44, 6, 1]&#39;),
+ Text(0.8594142259414226, 0.6388888888888888, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 1]&#39;),
+ Text(0.8661087866108786, 0.6388888888888888, &#39;x[2] &lt;= 0.72\ngini = 0.295\nsamples = 53\nvalue = [0, 0, 3, 44, 6, 0]&#39;),
+ Text(0.8627615062761507, 0.5833333333333334, &#39;x[8] &lt;= 0.531\ngini = 0.271\nsamples = 52\nvalue = [0, 0, 3, 44, 5, 0]&#39;),
+ Text(0.8460251046025105, 0.5277777777777778, &#39;x[10] &lt;= 0.5\ngini = 0.117\nsamples = 32\nvalue = [0, 0, 0, 30, 2, 0]&#39;),
+ Text(0.8393305439330544, 0.4722222222222222, &#39;x[2] &lt;= 0.455\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 0, 2, 1, 0]&#39;),
+ Text(0.8359832635983263, 0.4166666666666667, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.8426778242677824, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.8527196652719665, 0.4722222222222222, &#39;x[4] &lt;= 0.129\ngini = 0.067\nsamples = 29\nvalue = [0, 0, 0, 28, 1, 0]&#39;),
+ Text(0.8493723849372385, 0.4166666666666667, &#39;gini = 0.0\nsamples = 23\nvalue = [0, 0, 0, 23, 0, 0]&#39;),
+ Text(0.8560669456066946, 0.4166666666666667, &#39;x[0] &lt;= 0.412\ngini = 0.278\nsamples = 6\nvalue = [0, 0, 0, 5, 1, 0]&#39;),
+ Text(0.8527196652719665, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.8594142259414226, 0.3611111111111111, &#39;gini = 0.0\nsamples = 5\nvalue = [0, 0, 0, 5, 0, 0]&#39;),
+ Text(0.8794979079497908, 0.5277777777777778, &#39;x[4] &lt;= 0.091\ngini = 0.465\nsamples = 20\nvalue = [0, 0, 3, 14, 3, 0]&#39;),
+ Text(0.8728033472803347, 0.4722222222222222, &#39;x[7] &lt;= 0.279\ngini = 0.625\nsamples = 4\nvalue = [0, 0, 1, 1, 2, 0]&#39;),
+ Text(0.8694560669456067, 0.4166666666666667, &#39;x[0] &lt;= 0.168\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 1, 0, 0]&#39;),
+ Text(0.8661087866108786, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.8728033472803347, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.8761506276150628, 0.4166666666666667, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 0, 2, 0]&#39;),
+ Text(0.8861924686192468, 0.4722222222222222, &#39;x[2] &lt;= 0.265\ngini = 0.32\nsamples = 16\nvalue = [0, 0, 2, 13, 1, 0]&#39;),
+ Text(0.8828451882845189, 0.4166666666666667, &#39;x[7] &lt;= 0.197\ngini = 0.231\nsamples = 15\nvalue = [0, 0, 2, 13, 0, 0]&#39;),
+ Text(0.8794979079497908, 0.3611111111111111, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.8861924686192468, 0.3611111111111111, &#39;x[9] &lt;= 0.177\ngini = 0.133\nsamples = 14\nvalue = [0, 0, 1, 13, 0, 0]&#39;),
+ Text(0.8828451882845189, 0.3055555555555556, &#39;gini = 0.0\nsamples = 11\nvalue = [0, 0, 0, 11, 0, 0]&#39;),
+ Text(0.8895397489539749, 0.3055555555555556, &#39;x[1] &lt;= 0.336\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 1, 2, 0, 0]&#39;),
+ Text(0.8861924686192468, 0.25, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.8928870292887029, 0.25, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.8895397489539749, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.8694560669456067, 0.5833333333333334, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.9518828451882845, 0.8055555555555556, &#39;x[5] &lt;= 0.246\ngini = 0.543\nsamples = 90\nvalue = [0, 0, 2, 27, 54, 7]&#39;),
+ Text(0.9246861924686193, 0.75, &#39;x[5] &lt;= 0.099\ngini = 0.45\nsamples = 63\nvalue = [0, 0, 1, 11, 45, 6]&#39;),
+ Text(0.9096234309623431, 0.6944444444444444, &#39;x[1] &lt;= 0.199\ngini = 0.609\nsamples = 27\nvalue = [0, 0, 0, 10, 13, 4]&#39;),
+ Text(0.902928870292887, 0.6388888888888888, &#39;x[0] &lt;= 0.5\ngini = 0.278\nsamples = 12\nvalue = [0, 0, 0, 0, 10, 2]&#39;),
+ Text(0.899581589958159, 0.5833333333333334, &#39;x[3] &lt;= 0.072\ngini = 0.165\nsamples = 11\nvalue = [0, 0, 0, 0, 10, 1]&#39;),
+ Text(0.896234309623431, 0.5277777777777778, &#39;x[10] &lt;= 0.585\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 0, 0, 1, 1]&#39;),
+ Text(0.8928870292887029, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.899581589958159, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 1]&#39;),
+ Text(0.902928870292887, 0.5277777777777778, &#39;gini = 0.0\nsamples = 9\nvalue = [0, 0, 0, 0, 9, 0]&#39;),
+ Text(0.906276150627615, 0.5833333333333334, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 1]&#39;),
+ Text(0.9163179916317992, 0.6388888888888888, &#39;x[9] &lt;= 0.219\ngini = 0.498\nsamples = 15\nvalue = [0, 0, 0, 10, 3, 2]&#39;),
+ Text(0.9129707112970711, 0.5833333333333334, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 0, 0, 2]&#39;),
+ Text(0.9196652719665271, 0.5833333333333334, &#39;x[1] &lt;= 0.284\ngini = 0.355\nsamples = 13\nvalue = [0, 0, 0, 10, 3, 0]&#39;),
+ Text(0.9163179916317992, 0.5277777777777778, &#39;gini = 0.0\nsamples = 7\nvalue = [0, 0, 0, 7, 0, 0]&#39;),
+ Text(0.9230125523012552, 0.5277777777777778, &#39;x[6] &lt;= 0.03\ngini = 0.5\nsamples = 6\nvalue = [0, 0, 0, 3, 3, 0]&#39;),
+ Text(0.9196652719665271, 0.4722222222222222, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.9263598326359833, 0.4722222222222222, &#39;x[10] &lt;= 0.692\ngini = 0.375\nsamples = 4\nvalue = [0, 0, 0, 1, 3, 0]&#39;),
+ Text(0.9230125523012552, 0.4166666666666667, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 0, 3, 0]&#39;),
+ Text(0.9297071129707113, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.9397489539748954, 0.6944444444444444, &#39;x[9] &lt;= 0.219\ngini = 0.205\nsamples = 36\nvalue = [0, 0, 1, 1, 32, 2]&#39;),
+ Text(0.9364016736401674, 0.6388888888888888, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.9430962343096234, 0.6388888888888888, &#39;x[4] &lt;= 0.239\ngini = 0.16\nsamples = 35\nvalue = [0, 0, 0, 1, 32, 2]&#39;),
+ Text(0.9397489539748954, 0.5833333333333334, &#39;x[1] &lt;= 0.488\ngini = 0.111\nsamples = 34\nvalue = [0, 0, 0, 0, 32, 2]&#39;),
+ Text(0.9364016736401674, 0.5277777777777778, &#39;x[3] &lt;= 0.175\ngini = 0.059\nsamples = 33\nvalue = [0, 0, 0, 0, 32, 1]&#39;),
+ Text(0.9330543933054394, 0.4722222222222222, &#39;gini = 0.0\nsamples = 29\nvalue = [0, 0, 0, 0, 29, 0]&#39;),
+ Text(0.9397489539748954, 0.4722222222222222, &#39;x[8] &lt;= 0.476\ngini = 0.375\nsamples = 4\nvalue = [0, 0, 0, 0, 3, 1]&#39;),
+ Text(0.9364016736401674, 0.4166666666666667, &#39;gini = 0.0\nsamples = 3\nvalue = [0, 0, 0, 0, 3, 0]&#39;),
+ Text(0.9430962343096234, 0.4166666666666667, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 1]&#39;),
+ Text(0.9430962343096234, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 1]&#39;),
+ Text(0.9464435146443515, 0.5833333333333334, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.9790794979079498, 0.75, &#39;x[8] &lt;= 0.488\ngini = 0.535\nsamples = 27\nvalue = [0, 0, 1, 16, 9, 1]&#39;),
+ Text(0.9648535564853556, 0.6944444444444444, &#39;x[8] &lt;= 0.315\ngini = 0.5\nsamples = 14\nvalue = [0, 0, 1, 4, 9, 0]&#39;),
+ Text(0.9564853556485355, 0.6388888888888888, &#39;x[5] &lt;= 0.303\ngini = 0.5\nsamples = 2\nvalue = [0, 0, 1, 1, 0, 0]&#39;),
+ Text(0.9531380753138076, 0.5833333333333334, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 1, 0, 0, 0]&#39;),
+ Text(0.9598326359832636, 0.5833333333333334, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.9732217573221758, 0.6388888888888888, &#39;x[3] &lt;= 0.072\ngini = 0.375\nsamples = 12\nvalue = [0, 0, 0, 3, 9, 0]&#39;),
+ Text(0.9665271966527197, 0.5833333333333334, &#39;x[0] &lt;= 0.332\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 0, 2, 1, 0]&#39;),
+ Text(0.9631799163179916, 0.5277777777777778, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.9698744769874477, 0.5277777777777778, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 1, 0]&#39;),
+ Text(0.9799163179916318, 0.5833333333333334, &#39;x[6] &lt;= 0.177\ngini = 0.198\nsamples = 9\nvalue = [0, 0, 0, 1, 8, 0]&#39;),
+ Text(0.9765690376569037, 0.5277777777777778, &#39;gini = 0.0\nsamples = 6\nvalue = [0, 0, 0, 0, 6, 0]&#39;),
+ Text(0.9832635983263598, 0.5277777777777778, &#39;x[7] &lt;= 0.552\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 0, 1, 2, 0]&#39;),
+ Text(0.9799163179916318, 0.4722222222222222, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 1, 0, 0]&#39;),
+ Text(0.9866108786610879, 0.4722222222222222, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 0, 2, 0]&#39;),
+ Text(0.9933054393305439, 0.6944444444444444, &#39;x[6] &lt;= 0.14\ngini = 0.142\nsamples = 13\nvalue = [0, 0, 0, 12, 0, 1]&#39;),
+ Text(0.9899581589958159, 0.6388888888888888, &#39;x[10] &lt;= 0.638\ngini = 0.444\nsamples = 3\nvalue = [0, 0, 0, 2, 0, 1]&#39;),
+ Text(0.9866108786610879, 0.5833333333333334, &#39;gini = 0.0\nsamples = 2\nvalue = [0, 0, 0, 2, 0, 0]&#39;),
+ Text(0.9933054393305439, 0.5833333333333334, &#39;gini = 0.0\nsamples = 1\nvalue = [0, 0, 0, 0, 0, 1]&#39;),
+ Text(0.9966527196652719, 0.6388888888888888, &#39;gini = 0.0\nsamples = 10\nvalue = [0, 0, 0, 10, 0, 0]&#39;)]
+</pre></div>
+</div>
+<img alt="../_images/7a75dc555285d7d157f958bc9066d5ffb690f2619d641d4e94652b8cafb9ddb8.png" src="../_images/7a75dc555285d7d157f958bc9066d5ffb690f2619d641d4e94652b8cafb9ddb8.png" />
+</div>
+</div>
+<p>Menampilkan visualisasi decision tree dalam bentuk grafik yang berisi informasi seperti fitur yang digunakan, nilai ambang yang digunakan dalam setiap node, dan label kelas yang dihasilkan oleh model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dot_data</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">export_graphviz</span><span class="p">(</span><span class="n">clf_gini</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                              <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                              <span class="n">class_names</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;quality&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span>
+                              <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                              <span class="n">special_characters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="n">dot_data</span><span class="p">)</span>
+
+<span class="n">graph</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8dca400776a2ae64b4116a1bd3033e59c176d03ed986bdf36b60b9040974baba.svg" src="../_images/8dca400776a2ae64b4116a1bd3033e59c176d03ed986bdf36b60b9040974baba.svg" /></div>
+</div>
+<p>Menghitung akurasi model Decision Tree</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># menghitung akurasi pada data testing</span>
+<span class="n">y_pred_gini</span> <span class="o">=</span> <span class="n">clf_gini</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">accuracy_dt</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_gini</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy Decision Tree: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy_dt</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy Decision Tree: 0.56
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="knn">
+<h2>2. KNN<a class="headerlink" href="#knn" title="Permalink to this heading">#</a></h2>
+<p>Import library KNN</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membangun model KNN</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Melatih model dengan data latih</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Memprediksi kelas target untuk data uji</span>
+<span class="n">y_pred_knn</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Menghitung akurasi prediksi</span>
+<span class="n">accuracy_knn</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_knn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy KNN: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy_knn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy KNN: 0.53
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="naive-bayes">
+<h2>3. Naive Bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this heading">#</a></h2>
+<p>Import library Naive Bayes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_gaussian</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">clf_gaussian</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_gaussian</span> <span class="o">=</span> <span class="n">clf_gaussian</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Menghitung akurasi prediksi</span>
+<span class="n">accuracy_nb</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_gaussian</span>
+                             <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy Naive Bayes: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy_nb</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy Naive Bayes: 0.55
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="backpropagation-neural-network">
+<h2>4. Backpropagation Neural Network<a class="headerlink" href="#backpropagation-neural-network" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mlp_clf</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span>
+                        <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;logistic&#39;</span><span class="p">,</span>
+                        <span class="n">solver</span> <span class="o">=</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+
+<span class="c1"># melakukan training pada model</span>
+<span class="n">mlp_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred_mlp</span> <span class="o">=</span> <span class="n">mlp_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">accuracy_bnn</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_mlp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy BNN: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy_bnn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy BNN: 0.41
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;fixed acidity&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">7.4</span><span class="p">],</span>
+    <span class="s1">&#39;volatile acidity&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.700</span><span class="p">],</span>
+    <span class="s1">&#39;citric acid&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.00</span><span class="p">],</span>
+    <span class="s1">&#39;residual sugar&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.9</span><span class="p">],</span>
+    <span class="s1">&#39;chlorides&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.076</span><span class="p">],</span>
+    <span class="s1">&#39;free sulfur dioxide&#39;</span> <span class="p">:[</span><span class="mf">11.0</span><span class="p">],</span>
+    <span class="s1">&#39;total sulfur dioxide&#39;</span><span class="p">:[</span><span class="mf">34.0</span><span class="p">],</span>
+    <span class="s1">&#39;density&#39;</span><span class="p">:[</span><span class="mf">0.99780</span><span class="p">],</span>
+    <span class="s1">&#39;pH&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.51</span><span class="p">],</span>
+    <span class="s1">&#39;sulphates&#39;</span> <span class="p">:[</span><span class="mf">0.137725</span><span class="p">],</span>
+    <span class="s1">&#39;alcohol&#39;</span> <span class="p">:[</span><span class="mf">9.4</span><span class="p">],</span>
+<span class="p">})</span>
+
+
+<span class="c1"># Melakukan normalisasi Min-Max Scaling pada kolom numerik</span>
+<span class="n">normalized_new_data</span> <span class="o">=</span> <span class="n">minmax</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">new_data</span><span class="p">[[</span><span class="s1">&#39;fixed acidity&#39;</span><span class="p">,</span>	<span class="s1">&#39;volatile acidity&#39;</span><span class="p">,</span>	<span class="s1">&#39;citric acid&#39;</span><span class="p">,</span>	<span class="s1">&#39;residual sugar&#39;</span><span class="p">,</span>	<span class="s1">&#39;chlorides&#39;</span><span class="p">,</span>
+                                                 <span class="s1">&#39;free sulfur dioxide&#39;</span><span class="p">,</span><span class="s1">&#39;total sulfur dioxide&#39;</span><span class="p">,</span><span class="s1">&#39;density&#39;</span><span class="p">,</span><span class="s1">&#39;pH&#39;</span><span class="p">,</span><span class="s1">&#39;sulphates&#39;</span><span class="p">,</span><span class="s1">&#39;alcohol&#39;</span><span class="p">]])</span>
+
+<span class="c1"># Menggabungkan kembali data yang telah dinormalisasi</span>
+<span class="n">normalized_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;fixed acidity&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="s1">&#39;volatile acidity&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="s1">&#39;citric acid&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span>
+        <span class="s1">&#39;residual sugar&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span>
+        <span class="s1">&#39;chlorides&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">4</span><span class="p">],</span>
+        <span class="s1">&#39;free sulfur dioxide&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">5</span><span class="p">],</span>
+        <span class="s1">&#39;total sulfur dioxide&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">6</span><span class="p">],</span>
+        <span class="s1">&#39;density&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">7</span><span class="p">],</span>
+        <span class="s1">&#39;pH&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">8</span><span class="p">],</span>
+        <span class="s1">&#39;sulphates&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">9</span><span class="p">],</span>
+        <span class="s1">&#39;alcohol&#39;</span><span class="p">:</span> <span class="n">normalized_numeric</span><span class="p">[:,</span><span class="mi">10</span><span class="p">],</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1"># Memprediksi dari model Decision Tree</span>
+<span class="n">predicted_result</span> <span class="o">=</span> <span class="n">clf_gini</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">normalized_new_data</span><span class="p">)</span>
+
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Predicted Result:&#39;</span><span class="p">,</span> <span class="n">predicted_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicted Result: [5]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/sklearn/base.py:439: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tugas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Backpropagation_Neural_Network.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Jaringan Saraf Tiruan (Backpropagation Neural Network)</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">1. Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">2. KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">3. Naive Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backpropagation-neural-network">4. Backpropagation Neural Network</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
